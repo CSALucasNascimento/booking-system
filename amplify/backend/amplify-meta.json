@@ -1,0 +1,47 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "bookingsystem-20181023140327-authRole",
+			"UnauthRoleArn": "arn:aws:iam::093938843951:role/bookingsystem-20181023140327-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::093938843951:role/bookingsystem-20181023140327-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "bookingsystem-20181023140327-deployment",
+			"UnauthRoleName": "bookingsystem-20181023140327-unauthRole",
+			"StackName": "bookingsystem-20181023140327",
+			"StackId": "arn:aws:cloudformation:us-east-1:093938843951:stack/bookingsystem-20181023140327/38b9ebf0-d670-11e8-b67e-500c217dbe62"
+		}
+	},
+	"auth": {
+		"cognito79319e7e": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/bookingsystem-20181023140327-deployment/amplify-cfn-templates/auth/cognito79319e7e-cloudformation-template.yml",
+				"logicalId": "authcognito79319e7e"
+			},
+			"lastPushTimeStamp": "2018-10-23T03:12:52.904Z",
+			"output": {
+				"IdentityPoolId": "us-east-1:ddd6ce07-62c7-4912-9f12-8eba87187b87",
+				"IdentityPoolName": "bookingsystem_identitypool_aa59bbbf"
+			},
+			"lastPushDirHash": "EU4D/XCqOqJDIih3ACOsSXme8OA="
+		}
+	},
+	"analytics": {
+		"bookingsystem": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/bookingsystem-20181023140327-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"logicalId": "analyticsbookingsystem"
+			},
+			"lastPushTimeStamp": "2018-10-23T03:12:52.904Z",
+			"output": {
+				"appName": "bookingsystem",
+				"Region": "us-east-1",
+				"Id": "aa185c7c458b4013b9a879b9d070fe33"
+			},
+			"lastPushDirHash": "i6CknqgJ4lDHBGB/WqWIDfF08FM="
+		}
+	}
+}

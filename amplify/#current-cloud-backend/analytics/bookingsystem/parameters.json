@@ -1,0 +1,11 @@
+{
+    "appName": "bookingsystem",
+    "roleName": "pinpointLambdaRole1c20eb62",
+    "cloudWatchPolicyName": "cloudWatchPolicy1c20eb62",
+    "pinpointPolicyName": "pinpointPolicy1c20eb62",
+    "authPolicyName": "pinpoint_amplify_1c20eb62",
+    "unauthPolicyName": "pinpoint_amplify_1c20eb62",
+    "authRoleName": "bookingsystem-20181023140327-authRole",
+    "unauthRoleName": "bookingsystem-20181023140327-unauthRole",
+    "IAMPrefix": "093938843951"
+}
