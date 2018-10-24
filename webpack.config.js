@@ -1,4 +1,3 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -71,7 +70,6 @@ module.exports = {
         hot: true
     },
     plugins: [
-      new CopyWebpackPlugin(['./build/index.html']),
       new webpack.HotModuleReplacementPlugin()
     ]
 };
