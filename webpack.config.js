@@ -7,7 +7,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'build')
     },
     module: {
         rules: [
@@ -55,16 +55,23 @@ module.exports = {
                 loader: 'postcss-loader'
               }
             ]
+          },
+          {
+              test: /\.md$/,
+              use: {
+                  loader: path.resolve(__dirname, './lib/markdown-loader.js'),
+              }
+              
           }
         ]
     },
     devServer: {
-        contentBase: './dist',
+        contentBase: './build',
         overlay: true,
         hot: true
     },
     plugins: [
-      new CopyWebpackPlugin(['./dist/index.html']),
+      new CopyWebpackPlugin(['./build/index.html']),
       new webpack.HotModuleReplacementPlugin()
     ]
 };

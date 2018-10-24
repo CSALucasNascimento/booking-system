@@ -1,38 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 
-import Auth from '@aws-amplify/auth';
-import Analytics from '@aws-amplify/analytics';
+import Amplify, { Auth, Analytics } from 'aws-amplify'
 import awsconfig from './aws-exports';
+
+import { Main } from './components';
+import store, { AmplifyBridge } from './store';
 
 import s from './App.css';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 Auth.configure(awsconfig);
 Analytics.configure(awsconfig);
+Amplify.configure(awsconfig);
 
-Analytics.record('Booking system initial event');
+new AmplifyBridge(store);
 
 class App extends Component {
 
   render() {
     return (
-      <div className={s.app}>
-        <header className={s.header}>
-          <img src={logo} className={s.logo} alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className={s.link}
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <React.Fragment>
+        <Main />
+      </React.Fragment>
     );
   }
 }

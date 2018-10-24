@@ -1,9 +1,9 @@
 {
-    "projectName": "bookingsystem",
-    "projectPath": "/Users/lucas/Documents/Projects/booking-system",
+    "projectName": "BookingSystem",
+    "projectPath": "/Users/lucasnascimento/Documents/Projects/BookingSystem",
     "defaultEditor": "code",
     "frontendHandler": {
-        "javascript": "/Users/lucas/.nvm/versions/node/v8.4.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
+        "javascript": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
     },
     "javascript": {
         "framework": "react",
@@ -15,6 +15,6 @@
         }
     },
     "providers": {
-        "awscloudformation": "/Users/lucas/.nvm/versions/node/v8.4.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+        "awscloudformation": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
     }
 }

@@ -1,11 +1,11 @@
 {
     "appName": "bookingsystem",
-    "roleName": "pinpointLambdaRole1c20eb62",
-    "cloudWatchPolicyName": "cloudWatchPolicy1c20eb62",
-    "pinpointPolicyName": "pinpointPolicy1c20eb62",
-    "authPolicyName": "pinpoint_amplify_1c20eb62",
-    "unauthPolicyName": "pinpoint_amplify_1c20eb62",
-    "authRoleName": "bookingsystem-20181023140327-authRole",
-    "unauthRoleName": "bookingsystem-20181023140327-unauthRole",
+    "roleName": "pinpointLambdaRolebbe9afda",
+    "cloudWatchPolicyName": "cloudWatchPolicybbe9afda",
+    "pinpointPolicyName": "pinpointPolicybbe9afda",
+    "authPolicyName": "pinpoint_amplify_bbe9afda",
+    "unauthPolicyName": "pinpoint_amplify_bbe9afda",
+    "authRoleName": "ookingystem-20181023185535-authRole",
+    "unauthRoleName": "ookingystem-20181023185535-unauthRole",
     "IAMPrefix": "093938843951"
 }

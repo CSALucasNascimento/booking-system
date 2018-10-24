@@ -78,43 +78,78 @@
 				}
 			}
 		},
-		"authcognito79319e7e": {
+		"authcognito2c7f66b5": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/bookingsystem-20181023140327-deployment/amplify-cfn-templates/auth/cognito79319e7e-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/ookingystem-20181023185535-deployment/amplify-cfn-templates/auth/cognito2c7f66b5-cloudformation-template.yml",
 				"Parameters": {
-					"identityPoolName": "bookingsystem_identitypool_aa59bbbf",
-					"allowUnauthenticatedIdentities": true,
+					"resourceName": "cognito2c7f66b5",
+					"authSelections": "identityPoolAndUserPool",
+					"userPoolName": "cognito2c7f66b5_userpool_a6eb8fb1",
+					"autoVerifiedAttributes": "email",
+					"mfaConfiguration": "OFF",
+					"mfaTypes": "SMS Text Message",
+					"roleName": "cognito2c7f66b5_sns-role",
+					"roleExternalId": "cognito2c7f66b5_role_external_id",
+					"policyName": "cognito2c7f66b5-sns-policy",
+					"smsAuthenticationMessage": "Your authentication code is {####}",
+					"smsVerificationMessage": "Your verification code is {####}",
+					"emailVerificationSubject": "Your verification code",
+					"emailVerificationMessage": "Your verification code is {####}",
+					"defaultPasswordPolicy": false,
+					"passwordPolicyMinLength": 8,
+					"passwordPolicyCharacters": "Requires Lowercase,Requires Uppercase,Requires Numbers,Requires Symbols",
+					"requiredAttributes": "email",
+					"userpoolClientName": "cognito2c7f66b5_app_client",
+					"userpoolClientGenerateSecret": true,
+					"userpoolClientRefreshTokenValidity": 30,
+					"userpoolClientReadAttributes": "email",
+					"mfaLambdaRole": "cognito2c7f66b5_totp_lambda_role",
+					"mfaLambdaLogPolicy": "cognito2c7f66b5_totp_lambda_log_policy",
+					"mfaPassRolePolicy": "cognito2c7f66b5_totp_pass_role_policy",
+					"mfaLambdaIAMPolicy": "cognito2c7f66b5_totp_lambda_iam_policy",
+					"userpoolClientLambdaRole": "cognito2c7f66b5_userpoolclient_lambda_role",
+					"userpoolClientLogPolicy": "cognito2c7f66b5_userpoolclient_lambda_log_policy",
+					"userpoolClientLambdaPolicy": "cognito2c7f66b5_userpoolclient_lambda_iam_policy",
+					"userpoolClientSetAttributes": false,
+					"identityPoolName": "bookingsystem_identitypool_c891b656",
+					"allowUnauthenticatedIdentities": false,
 					"thirdPartyAuth": false,
-					"lambdaLogPolicy": "bookingsystem_lambda_log_policy",
-					"openIdLambdaRoleName": "bookingsystem_openid_lambda_role",
-					"openIdRolePolicy": "bookingsystem_openid_pass_role_policy",
-					"openIdLambdaIAMPolicy": "bookingsystem_openid_lambda_iam_policy",
-					"openIdLogPolicy": "bookingsystem_openid_lambda_log_policy",
-					"authSelections": "identityPoolOnly",
-					"resourceName": "cognito79319e7e",
-					"unAuthRoleName": "bookingsystem-20181023140327-unauthRole",
-					"authRoleName": "bookingsystem-20181023140327-authRole",
-					"unAuthRoleArn": "arn:aws:iam::093938843951:role/bookingsystem-20181023140327-unauthRole",
-					"authRoleArn": "arn:aws:iam::093938843951:role/bookingsystem-20181023140327-authRole"
+					"lambdaLogPolicy": "cognito2c7f66b5_lambda_log_policy",
+					"openIdLambdaRoleName": "cognito2c7f66b5_openid_lambda_role",
+					"openIdRolePolicy": "cognito2c7f66b5_openid_pass_role_policy",
+					"openIdLambdaIAMPolicy": "cognito2c7f66b5_openid_lambda_iam_policy",
+					"openIdLogPolicy": "cognito2c7f66b5_openid_lambda_log_policy",
+					"useDefault": "default",
+					"unAuthRoleName": "ookingystem-20181023185535-unauthRole",
+					"authRoleName": "ookingystem-20181023185535-authRole",
+					"unAuthRoleArn": "arn:aws:iam::093938843951:role/ookingystem-20181023185535-unauthRole",
+					"authRoleArn": "arn:aws:iam::093938843951:role/ookingystem-20181023185535-authRole"
 				}
 			}
 		},
 		"analyticsbookingsystem": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/bookingsystem-20181023140327-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"TemplateURL": "https://s3.amazonaws.com/ookingystem-20181023185535-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
 				"Parameters": {
 					"appName": "bookingsystem",
-					"roleName": "pinpointLambdaRole1c20eb62",
-					"cloudWatchPolicyName": "cloudWatchPolicy1c20eb62",
-					"pinpointPolicyName": "pinpointPolicy1c20eb62",
-					"authPolicyName": "pinpoint_amplify_1c20eb62",
-					"unauthPolicyName": "pinpoint_amplify_1c20eb62",
-					"authRoleName": "bookingsystem-20181023140327-authRole",
-					"unauthRoleName": "bookingsystem-20181023140327-unauthRole",
+					"roleName": "pinpointLambdaRolebbe9afda",
+					"cloudWatchPolicyName": "cloudWatchPolicybbe9afda",
+					"pinpointPolicyName": "pinpointPolicybbe9afda",
+					"authPolicyName": "pinpoint_amplify_bbe9afda",
+					"unauthPolicyName": "pinpoint_amplify_bbe9afda",
+					"authRoleName": "ookingystem-20181023185535-authRole",
+					"unauthRoleName": "ookingystem-20181023185535-unauthRole",
 					"IAMPrefix": "093938843951"
 				}
+			}
+		},
+		"hostingS3AndCloudFront": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/ookingystem-20181023185535-deployment/amplify-cfn-templates/hosting/template.json",
+				"Parameters": {}
 			}
 		}
 	},

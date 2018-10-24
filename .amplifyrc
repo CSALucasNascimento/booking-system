@@ -1,14 +1,14 @@
 {
     "providers": {
         "awscloudformation": {
-            "AuthRoleName": "bookingsystem-20181023140327-authRole",
-            "UnauthRoleArn": "arn:aws:iam::093938843951:role/bookingsystem-20181023140327-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::093938843951:role/bookingsystem-20181023140327-authRole",
+            "AuthRoleName": "ookingystem-20181023185535-authRole",
+            "UnauthRoleArn": "arn:aws:iam::093938843951:role/ookingystem-20181023185535-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::093938843951:role/ookingystem-20181023185535-authRole",
             "Region": "us-east-1",
-            "DeploymentBucketName": "bookingsystem-20181023140327-deployment",
-            "UnauthRoleName": "bookingsystem-20181023140327-unauthRole",
-            "StackName": "bookingsystem-20181023140327",
-            "StackId": "arn:aws:cloudformation:us-east-1:093938843951:stack/bookingsystem-20181023140327/38b9ebf0-d670-11e8-b67e-500c217dbe62"
+            "DeploymentBucketName": "ookingystem-20181023185535-deployment",
+            "UnauthRoleName": "ookingystem-20181023185535-unauthRole",
+            "StackName": "ookingystem-20181023185535",
+            "StackId": "arn:aws:cloudformation:us-east-1:093938843951:stack/ookingystem-20181023185535/0759dbf0-d699-11e8-a6d8-50d5cd1ea8d2"
         }
     }
 }
