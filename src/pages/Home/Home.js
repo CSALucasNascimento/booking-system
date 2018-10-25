@@ -13,11 +13,12 @@ import s from './Home.css';
 
 import { Button } from 'reactstrap';
 import { Analytics, API, graphqlOperation } from "aws-amplify";
-import * as queries from '../graphql/queries';
+import * as queries from '../../graphql/queries';
 
 
 // Simple query
-// const listSpaces = await API.graphql(graphqlOperation(queries.listSpaces));
+const listSpaces = await API.graphql(graphqlOperation(queries.listSpaces));
+console.log(listSpaces.json());
 
 class Home extends React.Component {
 
@@ -35,6 +36,7 @@ class Home extends React.Component {
         <div className={s.container}>
           <h1>React.js News</h1>
           <Button onClick={this.handleAnalytics}> Test Analytics </Button>
+          
         </div>
       </div>
     );
