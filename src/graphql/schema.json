@@ -139,7 +139,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getSpacePhotos",
+          "name" : "getSpacePhoto",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -157,20 +157,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpacePhotos",
+            "name" : "SpacePhoto",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listSpacePhotoss",
+          "name" : "listSpacePhotos",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSpacePhotosFilterInput",
+              "name" : "ModelSpacePhotoFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -195,7 +195,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelSpacePhotosConnection",
+            "name" : "ModelSpacePhotoConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -263,7 +263,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getSpaceBlockedDates",
+          "name" : "getSpaceBlockedDate",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -281,20 +281,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpaceBlockedDates",
+            "name" : "SpaceBlockedDate",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listSpaceBlockedDatess",
+          "name" : "listSpaceBlockedDates",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSpaceBlockedDatesFilterInput",
+              "name" : "ModelSpaceBlockedDateFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -319,7 +319,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelSpaceBlockedDatesConnection",
+            "name" : "ModelSpaceBlockedDateConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -638,7 +638,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSpacePhotosFilterInput",
+              "name" : "ModelSpacePhotoFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -672,7 +672,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelSpacePhotosConnection",
+            "name" : "ModelSpacePhotoConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -696,7 +696,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSpaceBlockedDatesFilterInput",
+              "name" : "ModelSpaceBlockedDateFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -730,7 +730,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelSpaceBlockedDatesConnection",
+            "name" : "ModelSpaceBlockedDateConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -967,7 +967,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelSpacePhotosConnection",
+        "name" : "ModelSpacePhotoConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
@@ -978,7 +978,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "SpacePhotos",
+              "name" : "SpacePhoto",
               "ofType" : null
             }
           },
@@ -1002,7 +1002,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "SpacePhotos",
+        "name" : "SpacePhoto",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -1101,7 +1101,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelSpacePhotosFilterInput",
+        "name" : "ModelSpacePhotoFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1166,7 +1166,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSpacePhotosFilterInput",
+              "name" : "ModelSpacePhotoFilterInput",
               "ofType" : null
             }
           },
@@ -1179,7 +1179,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSpacePhotosFilterInput",
+              "name" : "ModelSpacePhotoFilterInput",
               "ofType" : null
             }
           },
@@ -1189,7 +1189,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelSpacePhotosFilterInput",
+            "name" : "ModelSpacePhotoFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1487,7 +1487,7 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSpaceBlockedDatesFilterInput",
+              "name" : "ModelSpaceBlockedDateFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -1521,7 +1521,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelSpaceBlockedDatesConnection",
+            "name" : "ModelSpaceBlockedDateConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -1698,7 +1698,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelSpaceBlockedDatesConnection",
+        "name" : "ModelSpaceBlockedDateConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
@@ -1709,7 +1709,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "SpaceBlockedDates",
+              "name" : "SpaceBlockedDate",
               "ofType" : null
             }
           },
@@ -1733,7 +1733,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "SpaceBlockedDates",
+        "name" : "SpaceBlockedDate",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -1902,7 +1902,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelSpaceBlockedDatesFilterInput",
+        "name" : "ModelSpaceBlockedDateFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1949,7 +1949,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSpaceBlockedDatesFilterInput",
+              "name" : "ModelSpaceBlockedDateFilterInput",
               "ofType" : null
             }
           },
@@ -1962,7 +1962,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelSpaceBlockedDatesFilterInput",
+              "name" : "ModelSpaceBlockedDateFilterInput",
               "ofType" : null
             }
           },
@@ -1972,7 +1972,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelSpaceBlockedDatesFilterInput",
+            "name" : "ModelSpaceBlockedDateFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3388,7 +3388,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createSpacePhotos",
+          "name" : "createSpacePhoto",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3398,7 +3398,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateSpacePhotosInput",
+                "name" : "CreateSpacePhotoInput",
                 "ofType" : null
               }
             },
@@ -3406,13 +3406,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpacePhotos",
+            "name" : "SpacePhoto",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateSpacePhotos",
+          "name" : "updateSpacePhoto",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3422,7 +3422,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateSpacePhotosInput",
+                "name" : "UpdateSpacePhotoInput",
                 "ofType" : null
               }
             },
@@ -3430,13 +3430,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpacePhotos",
+            "name" : "SpacePhoto",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteSpacePhotos",
+          "name" : "deleteSpacePhoto",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3446,7 +3446,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteSpacePhotosInput",
+                "name" : "DeleteSpacePhotoInput",
                 "ofType" : null
               }
             },
@@ -3454,7 +3454,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpacePhotos",
+            "name" : "SpacePhoto",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -3532,7 +3532,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createSpaceBlockedDates",
+          "name" : "createSpaceBlockedDate",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3542,7 +3542,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateSpaceBlockedDatesInput",
+                "name" : "CreateSpaceBlockedDateInput",
                 "ofType" : null
               }
             },
@@ -3550,13 +3550,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpaceBlockedDates",
+            "name" : "SpaceBlockedDate",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateSpaceBlockedDates",
+          "name" : "updateSpaceBlockedDate",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3566,7 +3566,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateSpaceBlockedDatesInput",
+                "name" : "UpdateSpaceBlockedDateInput",
                 "ofType" : null
               }
             },
@@ -3574,13 +3574,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpaceBlockedDates",
+            "name" : "SpaceBlockedDate",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteSpaceBlockedDates",
+          "name" : "deleteSpaceBlockedDate",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -3590,7 +3590,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteSpaceBlockedDatesInput",
+                "name" : "DeleteSpaceBlockedDateInput",
                 "ofType" : null
               }
             },
@@ -3598,7 +3598,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpaceBlockedDates",
+            "name" : "SpaceBlockedDate",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -4396,7 +4396,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateSpacePhotosInput",
+        "name" : "CreateSpacePhotoInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4445,7 +4445,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "spacePhotosSpaceId",
+          "name" : "spacePhotoSpaceId",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -4459,7 +4459,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateSpacePhotosInput",
+        "name" : "UpdateSpacePhotoInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4521,7 +4521,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "spacePhotosSpaceId",
+          "name" : "spacePhotoSpaceId",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -4535,7 +4535,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteSpacePhotosInput",
+        "name" : "DeleteSpacePhotoInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4890,7 +4890,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateSpaceBlockedDatesInput",
+        "name" : "CreateSpaceBlockedDateInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4921,7 +4921,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "spaceBlockedDatesSpaceId",
+          "name" : "spaceBlockedDateSpaceId",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -4930,7 +4930,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "spaceBlockedDatesReservationId",
+          "name" : "spaceBlockedDateReservationId",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -4939,7 +4939,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "spaceBlockedDatesCalendarId",
+          "name" : "spaceBlockedDateCalendarId",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -4953,7 +4953,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateSpaceBlockedDatesInput",
+        "name" : "UpdateSpaceBlockedDateInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -4997,7 +4997,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "spaceBlockedDatesSpaceId",
+          "name" : "spaceBlockedDateSpaceId",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -5006,7 +5006,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "spaceBlockedDatesReservationId",
+          "name" : "spaceBlockedDateReservationId",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -5015,7 +5015,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "spaceBlockedDatesCalendarId",
+          "name" : "spaceBlockedDateCalendarId",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -5029,7 +5029,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteSpaceBlockedDatesInput",
+        "name" : "DeleteSpaceBlockedDateInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -5502,34 +5502,34 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onCreateSpacePhotos",
+          "name" : "onCreateSpacePhoto",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpacePhotos",
+            "name" : "SpacePhoto",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateSpacePhotos",
+          "name" : "onUpdateSpacePhoto",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpacePhotos",
+            "name" : "SpacePhoto",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteSpacePhotos",
+          "name" : "onDeleteSpacePhoto",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpacePhotos",
+            "name" : "SpacePhoto",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -5568,34 +5568,34 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onCreateSpaceBlockedDates",
+          "name" : "onCreateSpaceBlockedDate",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpaceBlockedDates",
+            "name" : "SpaceBlockedDate",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateSpaceBlockedDates",
+          "name" : "onUpdateSpaceBlockedDate",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpaceBlockedDates",
+            "name" : "SpaceBlockedDate",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteSpaceBlockedDates",
+          "name" : "onDeleteSpaceBlockedDate",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "SpaceBlockedDates",
+            "name" : "SpaceBlockedDate",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -6455,23 +6455,6 @@
         "onFragment" : false,
         "onField" : true
       }, {
-        "name" : "deprecated",
-        "description" : null,
-        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
-        "args" : [ {
-          "name" : "reason",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : "\"No longer supported\""
-        } ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
         "name" : "aws_auth",
         "description" : "Directs the schema to enforce authorization on a field",
         "locations" : [ "FIELD_DEFINITION" ],
@@ -6509,6 +6492,23 @@
             }
           },
           "defaultValue" : null
+        } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+        "name" : "deprecated",
+        "description" : null,
+        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
+        "args" : [ {
+          "name" : "reason",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : "\"No longer supported\""
         } ],
         "onOperation" : false,
         "onFragment" : false,

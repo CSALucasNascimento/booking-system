@@ -5,7 +5,7 @@
   "query": {
       "expression": "#connectionAttribute = :connectionAttribute",
       "expressionNames": {
-          "#connectionAttribute": "spaceBlockedDatesReservationId"
+          "#connectionAttribute": "spaceBlockedDateReservationId"
     },
       "expressionValues": {
           ":connectionAttribute": {
@@ -33,5 +33,5 @@
   #else
     null
   #end,
-  "index": "gsi-ReservationBlockedDates"
+  "index": "gsi-ReservationBlockedDate"
 }

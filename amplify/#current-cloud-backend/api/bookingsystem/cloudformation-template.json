@@ -1267,14 +1267,14 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "SpacePhotosTable": {
+        "SpacePhotoTable": {
             "Type": "AWS::DynamoDB::Table",
             "Properties": {
                 "TableName": {
                     "Fn::Join": [
                         "-",
                         [
-                            "SpacePhotos",
+                            "SpacePhoto",
                             {
                                 "Fn::GetAtt": [
                                     "GraphQLAPI",
@@ -1296,7 +1296,7 @@
                         "AttributeType": "S"
                     },
                     {
-                        "AttributeName": "spacePhotosSpaceId",
+                        "AttributeName": "spacePhotoSpaceId",
                         "AttributeType": "S"
                     }
                 ],
@@ -1313,10 +1313,10 @@
                 },
                 "GlobalSecondaryIndexes": [
                     {
-                        "IndexName": "gsi-SpacePhotos",
+                        "IndexName": "gsi-SpacePhoto",
                         "KeySchema": [
                             {
-                                "AttributeName": "spacePhotosSpaceId",
+                                "AttributeName": "spacePhotoSpaceId",
                                 "KeyType": "HASH"
                             }
                         ],
@@ -1335,14 +1335,14 @@
                 ]
             }
         },
-        "SpacePhotosIAMRole": {
+        "SpacePhotoIAMRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName": {
                     "Fn::Join": [
                         "-",
                         [
-                            "SpacePhotosTable",
+                            "SpacePhotoTable",
                             "role",
                             {
                                 "Fn::GetAtt": [
@@ -1386,7 +1386,7 @@
                                     "Resource": [
                                         {
                                             "Fn::GetAtt": [
-                                                "SpacePhotosTable",
+                                                "SpacePhotoTable",
                                                 "Arn"
                                             ]
                                         },
@@ -1396,7 +1396,7 @@
                                                 [
                                                     {
                                                         "Fn::GetAtt": [
-                                                            "SpacePhotosTable",
+                                                            "SpacePhotoTable",
                                                             "Arn"
                                                         ]
                                                     },
@@ -1412,7 +1412,7 @@
                 ]
             }
         },
-        "SpacePhotosDataSource": {
+        "SpacePhotoDataSource": {
             "Type": "AWS::AppSync::DataSource",
             "Properties": {
                 "ApiId": {
@@ -1421,11 +1421,11 @@
                         "ApiId"
                     ]
                 },
-                "Name": "SpacePhotosTable",
+                "Name": "SpacePhotoTable",
                 "Type": "AMAZON_DYNAMODB",
                 "ServiceRoleArn": {
                     "Fn::GetAtt": [
-                        "SpacePhotosIAMRole",
+                        "SpacePhotoIAMRole",
                         "Arn"
                     ]
                 },
@@ -1438,7 +1438,7 @@
                                     ":",
                                     {
                                         "Fn::GetAtt": [
-                                            "SpacePhotosTable",
+                                            "SpacePhotoTable",
                                             "Arn"
                                         ]
                                     }
@@ -1447,12 +1447,12 @@
                         ]
                     },
                     "TableName": {
-                        "Ref": "SpacePhotosTable"
+                        "Ref": "SpacePhotoTable"
                     }
                 }
             }
         },
-        "GetSpacePhotosResolver": {
+        "GetSpacePhotoResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -1463,11 +1463,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpacePhotosDataSource",
+                        "SpacePhotoDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "getSpacePhotos",
+                "FieldName": "getSpacePhoto",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
@@ -1489,7 +1489,7 @@
                                                 ".",
                                                 [
                                                     "Query",
-                                                    "getSpacePhotos",
+                                                    "getSpacePhoto",
                                                     "request",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -1523,7 +1523,7 @@
                                                 ".",
                                                 [
                                                     "Query",
-                                                    "getSpacePhotos",
+                                                    "getSpacePhoto",
                                                     "response",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -1540,7 +1540,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "ListSpacePhotosResolver": {
+        "ListSpacePhotoResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -1551,11 +1551,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpacePhotosDataSource",
+                        "SpacePhotoDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "listSpacePhotoss",
+                "FieldName": "listSpacePhotos",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
@@ -1577,7 +1577,7 @@
                                                 ".",
                                                 [
                                                     "Query",
-                                                    "listSpacePhotoss",
+                                                    "listSpacePhotos",
                                                     "request",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -1611,7 +1611,7 @@
                                                 ".",
                                                 [
                                                     "Query",
-                                                    "listSpacePhotoss",
+                                                    "listSpacePhotos",
                                                     "response",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -1628,7 +1628,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "CreateSpacePhotosResolver": {
+        "CreateSpacePhotoResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -1639,11 +1639,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpacePhotosDataSource",
+                        "SpacePhotoDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "createSpacePhotos",
+                "FieldName": "createSpacePhoto",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
@@ -1665,7 +1665,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "createSpacePhotos",
+                                                    "createSpacePhoto",
                                                     "request",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -1699,7 +1699,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "createSpacePhotos",
+                                                    "createSpacePhoto",
                                                     "response",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -1716,7 +1716,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "UpdateSpacePhotosResolver": {
+        "UpdateSpacePhotoResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -1727,11 +1727,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpacePhotosDataSource",
+                        "SpacePhotoDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "updateSpacePhotos",
+                "FieldName": "updateSpacePhoto",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
@@ -1753,7 +1753,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "updateSpacePhotos",
+                                                    "updateSpacePhoto",
                                                     "request",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -1787,7 +1787,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "updateSpacePhotos",
+                                                    "updateSpacePhoto",
                                                     "response",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -1804,7 +1804,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "DeleteSpacePhotosResolver": {
+        "DeleteSpacePhotoResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -1815,11 +1815,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpacePhotosDataSource",
+                        "SpacePhotoDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "deleteSpacePhotos",
+                "FieldName": "deleteSpacePhoto",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
@@ -1841,7 +1841,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "deleteSpacePhotos",
+                                                    "deleteSpacePhoto",
                                                     "request",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -1875,7 +1875,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "deleteSpacePhotos",
+                                                    "deleteSpacePhoto",
                                                     "response",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -2491,14 +2491,14 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "SpaceBlockedDatesTable": {
+        "SpaceBlockedDateTable": {
             "Type": "AWS::DynamoDB::Table",
             "Properties": {
                 "TableName": {
                     "Fn::Join": [
                         "-",
                         [
-                            "SpaceBlockedDates",
+                            "SpaceBlockedDate",
                             {
                                 "Fn::GetAtt": [
                                     "GraphQLAPI",
@@ -2520,11 +2520,11 @@
                         "AttributeType": "S"
                     },
                     {
-                        "AttributeName": "spaceBlockedDatesSpaceId",
+                        "AttributeName": "spaceBlockedDateSpaceId",
                         "AttributeType": "S"
                     },
                     {
-                        "AttributeName": "spaceBlockedDatesReservationId",
+                        "AttributeName": "spaceBlockedDateReservationId",
                         "AttributeType": "S"
                     }
                 ],
@@ -2541,10 +2541,10 @@
                 },
                 "GlobalSecondaryIndexes": [
                     {
-                        "IndexName": "gsi-SpaceBlockedDates",
+                        "IndexName": "gsi-SpaceBlockedDate",
                         "KeySchema": [
                             {
-                                "AttributeName": "spaceBlockedDatesSpaceId",
+                                "AttributeName": "spaceBlockedDateSpaceId",
                                 "KeyType": "HASH"
                             }
                         ],
@@ -2561,10 +2561,10 @@
                         }
                     },
                     {
-                        "IndexName": "gsi-ReservationBlockedDates",
+                        "IndexName": "gsi-ReservationBlockedDate",
                         "KeySchema": [
                             {
-                                "AttributeName": "spaceBlockedDatesReservationId",
+                                "AttributeName": "spaceBlockedDateReservationId",
                                 "KeyType": "HASH"
                             }
                         ],
@@ -2583,14 +2583,14 @@
                 ]
             }
         },
-        "SpaceBlockedDatesIAMRole": {
+        "SpaceBlockedDateIAMRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName": {
                     "Fn::Join": [
                         "-",
                         [
-                            "SpaceBlockedDatesTable",
+                            "SpaceBlockedDateTable",
                             "role",
                             {
                                 "Fn::GetAtt": [
@@ -2634,7 +2634,7 @@
                                     "Resource": [
                                         {
                                             "Fn::GetAtt": [
-                                                "SpaceBlockedDatesTable",
+                                                "SpaceBlockedDateTable",
                                                 "Arn"
                                             ]
                                         },
@@ -2644,7 +2644,7 @@
                                                 [
                                                     {
                                                         "Fn::GetAtt": [
-                                                            "SpaceBlockedDatesTable",
+                                                            "SpaceBlockedDateTable",
                                                             "Arn"
                                                         ]
                                                     },
@@ -2660,7 +2660,7 @@
                 ]
             }
         },
-        "SpaceBlockedDatesDataSource": {
+        "SpaceBlockedDateDataSource": {
             "Type": "AWS::AppSync::DataSource",
             "Properties": {
                 "ApiId": {
@@ -2669,11 +2669,11 @@
                         "ApiId"
                     ]
                 },
-                "Name": "SpaceBlockedDatesTable",
+                "Name": "SpaceBlockedDateTable",
                 "Type": "AMAZON_DYNAMODB",
                 "ServiceRoleArn": {
                     "Fn::GetAtt": [
-                        "SpaceBlockedDatesIAMRole",
+                        "SpaceBlockedDateIAMRole",
                         "Arn"
                     ]
                 },
@@ -2686,7 +2686,7 @@
                                     ":",
                                     {
                                         "Fn::GetAtt": [
-                                            "SpaceBlockedDatesTable",
+                                            "SpaceBlockedDateTable",
                                             "Arn"
                                         ]
                                     }
@@ -2695,12 +2695,12 @@
                         ]
                     },
                     "TableName": {
-                        "Ref": "SpaceBlockedDatesTable"
+                        "Ref": "SpaceBlockedDateTable"
                     }
                 }
             }
         },
-        "GetSpaceBlockedDatesResolver": {
+        "GetSpaceBlockedDateResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -2711,11 +2711,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpaceBlockedDatesDataSource",
+                        "SpaceBlockedDateDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "getSpaceBlockedDates",
+                "FieldName": "getSpaceBlockedDate",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
@@ -2737,7 +2737,7 @@
                                                 ".",
                                                 [
                                                     "Query",
-                                                    "getSpaceBlockedDates",
+                                                    "getSpaceBlockedDate",
                                                     "request",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -2771,7 +2771,7 @@
                                                 ".",
                                                 [
                                                     "Query",
-                                                    "getSpaceBlockedDates",
+                                                    "getSpaceBlockedDate",
                                                     "response",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -2788,7 +2788,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "ListSpaceBlockedDatesResolver": {
+        "ListSpaceBlockedDateResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -2799,11 +2799,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpaceBlockedDatesDataSource",
+                        "SpaceBlockedDateDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "listSpaceBlockedDatess",
+                "FieldName": "listSpaceBlockedDates",
                 "TypeName": "Query",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
@@ -2825,7 +2825,7 @@
                                                 ".",
                                                 [
                                                     "Query",
-                                                    "listSpaceBlockedDatess",
+                                                    "listSpaceBlockedDates",
                                                     "request",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -2859,7 +2859,7 @@
                                                 ".",
                                                 [
                                                     "Query",
-                                                    "listSpaceBlockedDatess",
+                                                    "listSpaceBlockedDates",
                                                     "response",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -2876,7 +2876,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "CreateSpaceBlockedDatesResolver": {
+        "CreateSpaceBlockedDateResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -2887,11 +2887,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpaceBlockedDatesDataSource",
+                        "SpaceBlockedDateDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "createSpaceBlockedDates",
+                "FieldName": "createSpaceBlockedDate",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
@@ -2913,7 +2913,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "createSpaceBlockedDates",
+                                                    "createSpaceBlockedDate",
                                                     "request",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -2947,7 +2947,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "createSpaceBlockedDates",
+                                                    "createSpaceBlockedDate",
                                                     "response",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -2964,7 +2964,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "UpdateSpaceBlockedDatesResolver": {
+        "UpdateSpaceBlockedDateResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -2975,11 +2975,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpaceBlockedDatesDataSource",
+                        "SpaceBlockedDateDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "updateSpaceBlockedDates",
+                "FieldName": "updateSpaceBlockedDate",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
@@ -3001,7 +3001,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "updateSpaceBlockedDates",
+                                                    "updateSpaceBlockedDate",
                                                     "request",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -3035,7 +3035,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "updateSpaceBlockedDates",
+                                                    "updateSpaceBlockedDate",
                                                     "response",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -3052,7 +3052,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "DeleteSpaceBlockedDatesResolver": {
+        "DeleteSpaceBlockedDateResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -3063,11 +3063,11 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpaceBlockedDatesDataSource",
+                        "SpaceBlockedDateDataSource",
                         "Name"
                     ]
                 },
-                "FieldName": "deleteSpaceBlockedDates",
+                "FieldName": "deleteSpaceBlockedDate",
                 "TypeName": "Mutation",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
@@ -3089,7 +3089,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "deleteSpaceBlockedDates",
+                                                    "deleteSpaceBlockedDate",
                                                     "request",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -3123,7 +3123,7 @@
                                                 ".",
                                                 [
                                                     "Mutation",
-                                                    "deleteSpaceBlockedDates",
+                                                    "deleteSpaceBlockedDate",
                                                     "response",
                                                     {
                                                         "Ref": "DeploymentTimestamp"
@@ -4437,7 +4437,7 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpacePhotosDataSource",
+                        "SpacePhotoDataSource",
                         "Name"
                     ]
                 },
@@ -4613,7 +4613,7 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpaceBlockedDatesDataSource",
+                        "SpaceBlockedDateDataSource",
                         "Name"
                     ]
                 },
@@ -4866,7 +4866,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "SpacePhotosspaceResolver": {
+        "SpacePhotospaceResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -4882,7 +4882,7 @@
                     ]
                 },
                 "FieldName": "space",
-                "TypeName": "SpacePhotos",
+                "TypeName": "SpacePhoto",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
                         "",
@@ -4902,7 +4902,7 @@
                                             "Fn::Join": [
                                                 ".",
                                                 [
-                                                    "SpacePhotos",
+                                                    "SpacePhoto",
                                                     "space",
                                                     "request",
                                                     {
@@ -4936,7 +4936,7 @@
                                             "Fn::Join": [
                                                 ".",
                                                 [
-                                                    "SpacePhotos",
+                                                    "SpacePhoto",
                                                     "space",
                                                     "response",
                                                     {
@@ -5053,7 +5053,7 @@
                 },
                 "DataSourceName": {
                     "Fn::GetAtt": [
-                        "SpaceBlockedDatesDataSource",
+                        "SpaceBlockedDateDataSource",
                         "Name"
                     ]
                 },
@@ -5218,7 +5218,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "SpaceBlockedDatesspaceResolver": {
+        "SpaceBlockedDatespaceResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -5234,7 +5234,7 @@
                     ]
                 },
                 "FieldName": "space",
-                "TypeName": "SpaceBlockedDates",
+                "TypeName": "SpaceBlockedDate",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
                         "",
@@ -5254,7 +5254,7 @@
                                             "Fn::Join": [
                                                 ".",
                                                 [
-                                                    "SpaceBlockedDates",
+                                                    "SpaceBlockedDate",
                                                     "space",
                                                     "request",
                                                     {
@@ -5288,7 +5288,7 @@
                                             "Fn::Join": [
                                                 ".",
                                                 [
-                                                    "SpaceBlockedDates",
+                                                    "SpaceBlockedDate",
                                                     "space",
                                                     "response",
                                                     {
@@ -5306,7 +5306,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "SpaceBlockedDatesreservationResolver": {
+        "SpaceBlockedDatereservationResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -5322,7 +5322,7 @@
                     ]
                 },
                 "FieldName": "reservation",
-                "TypeName": "SpaceBlockedDates",
+                "TypeName": "SpaceBlockedDate",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
                         "",
@@ -5342,7 +5342,7 @@
                                             "Fn::Join": [
                                                 ".",
                                                 [
-                                                    "SpaceBlockedDates",
+                                                    "SpaceBlockedDate",
                                                     "reservation",
                                                     "request",
                                                     {
@@ -5376,7 +5376,7 @@
                                             "Fn::Join": [
                                                 ".",
                                                 [
-                                                    "SpaceBlockedDates",
+                                                    "SpaceBlockedDate",
                                                     "reservation",
                                                     "response",
                                                     {
@@ -5394,7 +5394,7 @@
             },
             "DependsOn": "GraphQLSchema"
         },
-        "SpaceBlockedDatescalendarResolver": {
+        "SpaceBlockedDatecalendarResolver": {
             "Type": "AWS::AppSync::Resolver",
             "Properties": {
                 "ApiId": {
@@ -5410,7 +5410,7 @@
                     ]
                 },
                 "FieldName": "calendar",
-                "TypeName": "SpaceBlockedDates",
+                "TypeName": "SpaceBlockedDate",
                 "RequestMappingTemplateS3Location": {
                     "Fn::Join": [
                         "",
@@ -5430,7 +5430,7 @@
                                             "Fn::Join": [
                                                 ".",
                                                 [
-                                                    "SpaceBlockedDates",
+                                                    "SpaceBlockedDate",
                                                     "calendar",
                                                     "request",
                                                     {
@@ -5464,7 +5464,7 @@
                                             "Fn::Join": [
                                                 ".",
                                                 [
-                                                    "SpaceBlockedDates",
+                                                    "SpaceBlockedDate",
                                                     "calendar",
                                                     "response",
                                                     {

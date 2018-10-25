@@ -1,35 +1,35 @@
 {
 	"providers": {
 		"awscloudformation": {
-			"AuthRoleName": "ookingystem-20181023185535-authRole",
-			"UnauthRoleArn": "arn:aws:iam::093938843951:role/ookingystem-20181023185535-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::093938843951:role/ookingystem-20181023185535-authRole",
+			"AuthRoleName": "ookingystem-20181026083347-authRole",
+			"UnauthRoleArn": "arn:aws:iam::497416105262:role/ookingystem-20181026083347-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::497416105262:role/ookingystem-20181026083347-authRole",
 			"Region": "us-east-1",
-			"DeploymentBucketName": "ookingystem-20181023185535-deployment",
-			"UnauthRoleName": "ookingystem-20181023185535-unauthRole",
-			"StackName": "ookingystem-20181023185535",
-			"StackId": "arn:aws:cloudformation:us-east-1:093938843951:stack/ookingystem-20181023185535/0759dbf0-d699-11e8-a6d8-50d5cd1ea8d2"
+			"DeploymentBucketName": "ookingystem-20181026083347-deployment",
+			"UnauthRoleName": "ookingystem-20181026083347-unauthRole",
+			"StackName": "ookingystem-20181026083347",
+			"StackId": "arn:aws:cloudformation:us-east-1:497416105262:stack/ookingystem-20181026083347/aa729060-d89d-11e8-a09b-500c28601499"
 		}
 	},
 	"auth": {
-		"cognito2c7f66b5": {
+		"cognitoa5a2f1b1": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/ookingystem-20181023185535-deployment/amplify-cfn-templates/auth/cognito2c7f66b5-cloudformation-template.yml",
-				"logicalId": "authcognito2c7f66b5"
+				"s3TemplateURL": "https://s3.amazonaws.com/ookingystem-20181026083347-deployment/amplify-cfn-templates/auth/cognitoa5a2f1b1-cloudformation-template.yml",
+				"logicalId": "authcognitoa5a2f1b1"
 			},
-			"lastPushTimeStamp": "2018-10-25T11:56:41.904Z",
+			"lastPushTimeStamp": "2018-10-25T21:53:55.651Z",
 			"output": {
-				"IdentityPoolId": "us-east-1:2ce2c86f-5af8-48d2-a6e0-8d769fb4bb53",
-				"IdentityPoolName": "bookingsystem_identitypool_c891b656",
-				"AppClientSecret": "1h35ll16eqi4pohh38i92oveqrghrancnjmug12enhgifhcbgh87",
-				"UserPoolId": "us-east-1_nTGYRFTSV",
-				"AppClientIDWeb": "1cvnaj5g87fdu1849d2p2vjcos",
-				"AppClientID": "3m71lnir373qhntrrdlqkhn80f",
-				"UserPoolName": "cognito2c7f66b5_userpool_a6eb8fb1"
+				"IdentityPoolId": "us-east-1:79fde03a-b37f-400c-8ef0-9eafc1198c6e",
+				"IdentityPoolName": "bookingsystem_identitypool_968f1683",
+				"AppClientSecret": "s1eohvbmi9smhf4j4m1jlvpdfdu7oofa3b4f4okh0isj08em8b7",
+				"UserPoolId": "us-east-1_DMl0yvg3V",
+				"AppClientIDWeb": "5tm39vpscj0bnsqkq40dbfnbkl",
+				"AppClientID": "2m3k1rmn1ps6pne2tktogkvui",
+				"UserPoolName": "cognitoa5a2f1b1_userpool_28da3b6d"
 			},
-			"lastPushDirHash": "6VsNSDPN+9NMwLSgUEmuzcO1xUM=",
+			"lastPushDirHash": "qxuZutdfBfiSZKK5dBglR0k/6+8=",
 			"[object Object]": {}
 		}
 	},
@@ -38,16 +38,16 @@
 			"service": "Pinpoint",
 			"providerPlugin": "awscloudformation",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/ookingystem-20181023185535-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"s3TemplateURL": "https://s3.amazonaws.com/ookingystem-20181026083347-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
 				"logicalId": "analyticsbookingsystem"
 			},
-			"lastPushTimeStamp": "2018-10-25T11:56:41.906Z",
+			"lastPushTimeStamp": "2018-10-25T21:53:55.649Z",
 			"output": {
 				"appName": "bookingsystem",
 				"Region": "us-east-1",
-				"Id": "ff970504587f40d6b898df8132e9db94"
+				"Id": "8ec92d10d5524cceae5bcee6e00c0a52"
 			},
-			"lastPushDirHash": "0sfNfxKZ8gN9MUBYOsL3bWpjPaI="
+			"lastPushDirHash": "/6/agQkXBDhrnmYgp7+p+UZY+Cs="
 		}
 	},
 	"api": {
@@ -56,16 +56,16 @@
 			"providerPlugin": "awscloudformation",
 			"output": {
 				"securityType": "API_KEY",
-				"GraphQLAPIIdOutput": "kqkjyhdxuncdnlaejrjm34ua6m",
-				"GraphQLAPIEndpointOutput": "https://rc3c4aelnrebzoaawqjxkpxhhe.appsync-api.us-east-1.amazonaws.com/graphql",
-				"GraphQLAPIKeyOutput": "da2-t3tdfjtizber3dwkdng3f3q3iq"
+				"GraphQLAPIIdOutput": "djenzziefvcwzaaonr77mmsxwa",
+				"GraphQLAPIEndpointOutput": "https://twzhwgy3yzbb7ai3ouljicuy7y.appsync-api.us-east-1.amazonaws.com/graphql",
+				"GraphQLAPIKeyOutput": "da2-tinuw7akjjfjxhbkuxghqrlyvy"
 			},
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/ookingystem-20181023185535-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"s3TemplateURL": "https://s3.amazonaws.com/ookingystem-20181026083347-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apibookingsystem"
 			},
-			"lastPushTimeStamp": "2018-10-25T11:56:45.832Z",
-			"lastPushDirHash": "3wTu1i72Y1f407mVhy4mUwTbP8s="
+			"lastPushTimeStamp": "2018-10-25T21:53:55.651Z",
+			"lastPushDirHash": "tpcZcH7DgxrMBmPSw9VfCQxQGG0="
 		}
 	}
 }

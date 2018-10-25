@@ -343,8 +343,8 @@ export const deleteSpaceData = `mutation DeleteSpaceData($input: DeleteSpaceData
   }
 }
 `;
-export const createSpacePhotos = `mutation CreateSpacePhotos($input: CreateSpacePhotosInput!) {
-  createSpacePhotos(input: $input) {
+export const createSpacePhoto = `mutation CreateSpacePhoto($input: CreateSpacePhotoInput!) {
+  createSpacePhoto(input: $input) {
     id
     space {
       id
@@ -375,8 +375,8 @@ export const createSpacePhotos = `mutation CreateSpacePhotos($input: CreateSpace
   }
 }
 `;
-export const updateSpacePhotos = `mutation UpdateSpacePhotos($input: UpdateSpacePhotosInput!) {
-  updateSpacePhotos(input: $input) {
+export const updateSpacePhoto = `mutation UpdateSpacePhoto($input: UpdateSpacePhotoInput!) {
+  updateSpacePhoto(input: $input) {
     id
     space {
       id
@@ -407,8 +407,8 @@ export const updateSpacePhotos = `mutation UpdateSpacePhotos($input: UpdateSpace
   }
 }
 `;
-export const deleteSpacePhotos = `mutation DeleteSpacePhotos($input: DeleteSpacePhotosInput!) {
-  deleteSpacePhotos(input: $input) {
+export const deleteSpacePhoto = `mutation DeleteSpacePhoto($input: DeleteSpacePhotoInput!) {
+  deleteSpacePhoto(input: $input) {
     id
     space {
       id
@@ -628,8 +628,8 @@ export const deleteReservation = `mutation DeleteReservation($input: DeleteReser
   }
 }
 `;
-export const createSpaceBlockedDates = `mutation CreateSpaceBlockedDates($input: CreateSpaceBlockedDatesInput!) {
-  createSpaceBlockedDates(input: $input) {
+export const createSpaceBlockedDate = `mutation CreateSpaceBlockedDate($input: CreateSpaceBlockedDateInput!) {
+  createSpaceBlockedDate(input: $input) {
     id
     space {
       id
@@ -682,8 +682,8 @@ export const createSpaceBlockedDates = `mutation CreateSpaceBlockedDates($input:
   }
 }
 `;
-export const updateSpaceBlockedDates = `mutation UpdateSpaceBlockedDates($input: UpdateSpaceBlockedDatesInput!) {
-  updateSpaceBlockedDates(input: $input) {
+export const updateSpaceBlockedDate = `mutation UpdateSpaceBlockedDate($input: UpdateSpaceBlockedDateInput!) {
+  updateSpaceBlockedDate(input: $input) {
     id
     space {
       id
@@ -736,8 +736,8 @@ export const updateSpaceBlockedDates = `mutation UpdateSpaceBlockedDates($input:
   }
 }
 `;
-export const deleteSpaceBlockedDates = `mutation DeleteSpaceBlockedDates($input: DeleteSpaceBlockedDatesInput!) {
-  deleteSpaceBlockedDates(input: $input) {
+export const deleteSpaceBlockedDate = `mutation DeleteSpaceBlockedDate($input: DeleteSpaceBlockedDateInput!) {
+  deleteSpaceBlockedDate(input: $input) {
     id
     space {
       id

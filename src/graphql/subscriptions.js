@@ -343,8 +343,8 @@ export const onDeleteSpaceData = `subscription OnDeleteSpaceData {
   }
 }
 `;
-export const onCreateSpacePhotos = `subscription OnCreateSpacePhotos {
-  onCreateSpacePhotos {
+export const onCreateSpacePhoto = `subscription OnCreateSpacePhoto {
+  onCreateSpacePhoto {
     id
     space {
       id
@@ -375,8 +375,8 @@ export const onCreateSpacePhotos = `subscription OnCreateSpacePhotos {
   }
 }
 `;
-export const onUpdateSpacePhotos = `subscription OnUpdateSpacePhotos {
-  onUpdateSpacePhotos {
+export const onUpdateSpacePhoto = `subscription OnUpdateSpacePhoto {
+  onUpdateSpacePhoto {
     id
     space {
       id
@@ -407,8 +407,8 @@ export const onUpdateSpacePhotos = `subscription OnUpdateSpacePhotos {
   }
 }
 `;
-export const onDeleteSpacePhotos = `subscription OnDeleteSpacePhotos {
-  onDeleteSpacePhotos {
+export const onDeleteSpacePhoto = `subscription OnDeleteSpacePhoto {
+  onDeleteSpacePhoto {
     id
     space {
       id
@@ -628,8 +628,8 @@ export const onDeleteReservation = `subscription OnDeleteReservation {
   }
 }
 `;
-export const onCreateSpaceBlockedDates = `subscription OnCreateSpaceBlockedDates {
-  onCreateSpaceBlockedDates {
+export const onCreateSpaceBlockedDate = `subscription OnCreateSpaceBlockedDate {
+  onCreateSpaceBlockedDate {
     id
     space {
       id
@@ -682,8 +682,8 @@ export const onCreateSpaceBlockedDates = `subscription OnCreateSpaceBlockedDates
   }
 }
 `;
-export const onUpdateSpaceBlockedDates = `subscription OnUpdateSpaceBlockedDates {
-  onUpdateSpaceBlockedDates {
+export const onUpdateSpaceBlockedDate = `subscription OnUpdateSpaceBlockedDate {
+  onUpdateSpaceBlockedDate {
     id
     space {
       id
@@ -736,8 +736,8 @@ export const onUpdateSpaceBlockedDates = `subscription OnUpdateSpaceBlockedDates
   }
 }
 `;
-export const onDeleteSpaceBlockedDates = `subscription OnDeleteSpaceBlockedDates {
-  onDeleteSpaceBlockedDates {
+export const onDeleteSpaceBlockedDate = `subscription OnDeleteSpaceBlockedDate {
+  onDeleteSpaceBlockedDate {
     id
     space {
       id

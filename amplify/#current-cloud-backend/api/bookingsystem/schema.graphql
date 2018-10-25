@@ -14,9 +14,9 @@ type Space @model {
   title: String
   description: String
   spaceData: SpaceData @connection(name: "SpaceData")
-  photos: [SpacePhotos] @connection(name: "SpacePhotos")
+  photos: [SpacePhoto] @connection(name: "SpacePhoto")
   reservation: Reservation @connection(name: "SpaceReservation")
-  blockedDates:[SpaceBlockedDates] @connection(name: "SpaceBlockedDates")
+  blockedDates:[SpaceBlockedDate] @connection(name: "SpaceBlockedDate")
   calendar: SpaceCalendar @connection(name: "SpaceCalendar")
   bookingType: String
   isPublished: Boolean
@@ -36,9 +36,9 @@ type SpaceData @model {
   createdAt: String
   updatedAt: String
 }
-type SpacePhotos @model {
+type SpacePhoto @model {
   id: ID!
-  space: Space @connection(name: "SpacePhotos")
+  space: Space @connection(name: "SpacePhoto")
   name: String
   type: String
   isCover: Boolean
@@ -48,7 +48,7 @@ type SpacePhotos @model {
 type Reservation @model {
   id: ID!
   space: Space @connection(name: "SpaceReservation")
-  blockedDates: [SpaceBlockedDates] @connection(name: "ReservationBlockedDates")
+  blockedDates: [SpaceBlockedDate] @connection(name: "ReservationBlockedDate")
   transaction: Transaction @connection(name: "ReservationTransaction")
   guestId: String
   checkIn: String
@@ -65,10 +65,10 @@ type Reservation @model {
   createdAt: String
   updatedAt: String
 }
-type SpaceBlockedDates @model {
+type SpaceBlockedDate @model {
   id: ID!
-  space: Space @connection(name: "SpaceBlockedDates")
-  reservation: Reservation @connection(name: "ReservationBlockedDates")
+  space: Space @connection(name: "SpaceBlockedDate")
+  reservation: Reservation @connection(name: "ReservationBlockedDate")
   calendar: SpaceCalendar @connection(name: "SpaceCalendar")
   blockedDates: String
   createdAt: String

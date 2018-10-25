@@ -243,8 +243,8 @@ export const listSpaceDatas = `query ListSpaceDatas(
   }
 }
 `;
-export const getSpacePhotos = `query GetSpacePhotos($id: ID!) {
-  getSpacePhotos(id: $id) {
+export const getSpacePhoto = `query GetSpacePhoto($id: ID!) {
+  getSpacePhoto(id: $id) {
     id
     space {
       id
@@ -275,12 +275,12 @@ export const getSpacePhotos = `query GetSpacePhotos($id: ID!) {
   }
 }
 `;
-export const listSpacePhotoss = `query ListSpacePhotoss(
-  $filter: ModelSpacePhotosFilterInput
+export const listSpacePhotos = `query ListSpacePhotos(
+  $filter: ModelSpacePhotoFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listSpacePhotoss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listSpacePhotos(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       space {
@@ -447,8 +447,8 @@ export const listReservations = `query ListReservations(
   }
 }
 `;
-export const getSpaceBlockedDates = `query GetSpaceBlockedDates($id: ID!) {
-  getSpaceBlockedDates(id: $id) {
+export const getSpaceBlockedDate = `query GetSpaceBlockedDate($id: ID!) {
+  getSpaceBlockedDate(id: $id) {
     id
     space {
       id
@@ -501,16 +501,12 @@ export const getSpaceBlockedDates = `query GetSpaceBlockedDates($id: ID!) {
   }
 }
 `;
-export const listSpaceBlockedDatess = `query ListSpaceBlockedDatess(
-  $filter: ModelSpaceBlockedDatesFilterInput
+export const listSpaceBlockedDates = `query ListSpaceBlockedDates(
+  $filter: ModelSpaceBlockedDateFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listSpaceBlockedDatess(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-  ) {
+  listSpaceBlockedDates(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       space {

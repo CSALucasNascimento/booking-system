@@ -1,7 +1,7 @@
 {
     "AppSyncApiName": "bookingsystem",
-    "schemaGraphql": "s3://ookingystem-20181023185535-deployment/amplify-appsync-files/schema.graphql.1540468364114",
-    "ResolverBucket": "ookingystem-20181023185535-deployment",
+    "schemaGraphql": "s3://ookingystem-20181026083347-deployment/amplify-appsync-files/schema.graphql.1540504258825",
+    "ResolverBucket": "ookingystem-20181026083347-deployment",
     "ResolverRootKey": "amplify-appsync-files",
-    "DeploymentTimestamp": "1540468364114"
+    "DeploymentTimestamp": "1540504258825"
 }

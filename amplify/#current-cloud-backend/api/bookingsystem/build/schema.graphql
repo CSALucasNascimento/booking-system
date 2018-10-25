@@ -14,9 +14,9 @@ type Space {
   title: String
   description: String
   spaceData: SpaceData
-  photos(filter: ModelSpacePhotosFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpacePhotosConnection
+  photos(filter: ModelSpacePhotoFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpacePhotoConnection
   reservation: Reservation
-  blockedDates(filter: ModelSpaceBlockedDatesFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpaceBlockedDatesConnection
+  blockedDates(filter: ModelSpaceBlockedDateFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpaceBlockedDateConnection
   calendar: SpaceCalendar
   bookingType: String
   isPublished: Boolean
@@ -38,7 +38,7 @@ type SpaceData {
   updatedAt: String
 }
 
-type SpacePhotos {
+type SpacePhoto {
   id: ID!
   space: Space
   name: String
@@ -51,7 +51,7 @@ type SpacePhotos {
 type Reservation {
   id: ID!
   space: Space
-  blockedDates(filter: ModelSpaceBlockedDatesFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpaceBlockedDatesConnection
+  blockedDates(filter: ModelSpaceBlockedDateFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpaceBlockedDateConnection
   transaction: Transaction
   guestId: String
   checkIn: String
@@ -69,7 +69,7 @@ type Reservation {
   updatedAt: String
 }
 
-type SpaceBlockedDates {
+type SpaceBlockedDate {
   id: ID!
   space: Space
   reservation: Reservation
@@ -198,12 +198,12 @@ type Query {
   listSpaces(filter: ModelSpaceFilterInput, limit: Int, nextToken: String): ModelSpaceConnection
   getSpaceData(id: ID!): SpaceData
   listSpaceDatas(filter: ModelSpaceDataFilterInput, limit: Int, nextToken: String): ModelSpaceDataConnection
-  getSpacePhotos(id: ID!): SpacePhotos
-  listSpacePhotoss(filter: ModelSpacePhotosFilterInput, limit: Int, nextToken: String): ModelSpacePhotosConnection
+  getSpacePhoto(id: ID!): SpacePhoto
+  listSpacePhotos(filter: ModelSpacePhotoFilterInput, limit: Int, nextToken: String): ModelSpacePhotoConnection
   getReservation(id: ID!): Reservation
   listReservations(filter: ModelReservationFilterInput, limit: Int, nextToken: String): ModelReservationConnection
-  getSpaceBlockedDates(id: ID!): SpaceBlockedDates
-  listSpaceBlockedDatess(filter: ModelSpaceBlockedDatesFilterInput, limit: Int, nextToken: String): ModelSpaceBlockedDatesConnection
+  getSpaceBlockedDate(id: ID!): SpaceBlockedDate
+  listSpaceBlockedDates(filter: ModelSpaceBlockedDateFilterInput, limit: Int, nextToken: String): ModelSpaceBlockedDateConnection
   getSpaceCalendar(id: ID!): SpaceCalendar
   listSpaceCalendars(filter: ModelSpaceCalendarFilterInput, limit: Int, nextToken: String): ModelSpaceCalendarConnection
   getTransaction(id: ID!): Transaction
@@ -270,15 +270,15 @@ type Mutation {
   createSpaceData(input: CreateSpaceDataInput!): SpaceData
   updateSpaceData(input: UpdateSpaceDataInput!): SpaceData
   deleteSpaceData(input: DeleteSpaceDataInput!): SpaceData
-  createSpacePhotos(input: CreateSpacePhotosInput!): SpacePhotos
-  updateSpacePhotos(input: UpdateSpacePhotosInput!): SpacePhotos
-  deleteSpacePhotos(input: DeleteSpacePhotosInput!): SpacePhotos
+  createSpacePhoto(input: CreateSpacePhotoInput!): SpacePhoto
+  updateSpacePhoto(input: UpdateSpacePhotoInput!): SpacePhoto
+  deleteSpacePhoto(input: DeleteSpacePhotoInput!): SpacePhoto
   createReservation(input: CreateReservationInput!): Reservation
   updateReservation(input: UpdateReservationInput!): Reservation
   deleteReservation(input: DeleteReservationInput!): Reservation
-  createSpaceBlockedDates(input: CreateSpaceBlockedDatesInput!): SpaceBlockedDates
-  updateSpaceBlockedDates(input: UpdateSpaceBlockedDatesInput!): SpaceBlockedDates
-  deleteSpaceBlockedDates(input: DeleteSpaceBlockedDatesInput!): SpaceBlockedDates
+  createSpaceBlockedDate(input: CreateSpaceBlockedDateInput!): SpaceBlockedDate
+  updateSpaceBlockedDate(input: UpdateSpaceBlockedDateInput!): SpaceBlockedDate
+  deleteSpaceBlockedDate(input: DeleteSpaceBlockedDateInput!): SpaceBlockedDate
   createSpaceCalendar(input: CreateSpaceCalendarInput!): SpaceCalendar
   updateSpaceCalendar(input: UpdateSpaceCalendarInput!): SpaceCalendar
   deleteSpaceCalendar(input: DeleteSpaceCalendarInput!): SpaceCalendar
@@ -294,15 +294,15 @@ type Subscription {
   onCreateSpaceData: SpaceData @aws_subscribe(mutations: ["createSpaceData"])
   onUpdateSpaceData: SpaceData @aws_subscribe(mutations: ["updateSpaceData"])
   onDeleteSpaceData: SpaceData @aws_subscribe(mutations: ["deleteSpaceData"])
-  onCreateSpacePhotos: SpacePhotos @aws_subscribe(mutations: ["createSpacePhotos"])
-  onUpdateSpacePhotos: SpacePhotos @aws_subscribe(mutations: ["updateSpacePhotos"])
-  onDeleteSpacePhotos: SpacePhotos @aws_subscribe(mutations: ["deleteSpacePhotos"])
+  onCreateSpacePhoto: SpacePhoto @aws_subscribe(mutations: ["createSpacePhoto"])
+  onUpdateSpacePhoto: SpacePhoto @aws_subscribe(mutations: ["updateSpacePhoto"])
+  onDeleteSpacePhoto: SpacePhoto @aws_subscribe(mutations: ["deleteSpacePhoto"])
   onCreateReservation: Reservation @aws_subscribe(mutations: ["createReservation"])
   onUpdateReservation: Reservation @aws_subscribe(mutations: ["updateReservation"])
   onDeleteReservation: Reservation @aws_subscribe(mutations: ["deleteReservation"])
-  onCreateSpaceBlockedDates: SpaceBlockedDates @aws_subscribe(mutations: ["createSpaceBlockedDates"])
-  onUpdateSpaceBlockedDates: SpaceBlockedDates @aws_subscribe(mutations: ["updateSpaceBlockedDates"])
-  onDeleteSpaceBlockedDates: SpaceBlockedDates @aws_subscribe(mutations: ["deleteSpaceBlockedDates"])
+  onCreateSpaceBlockedDate: SpaceBlockedDate @aws_subscribe(mutations: ["createSpaceBlockedDate"])
+  onUpdateSpaceBlockedDate: SpaceBlockedDate @aws_subscribe(mutations: ["updateSpaceBlockedDate"])
+  onDeleteSpaceBlockedDate: SpaceBlockedDate @aws_subscribe(mutations: ["deleteSpaceBlockedDate"])
   onCreateSpaceCalendar: SpaceCalendar @aws_subscribe(mutations: ["createSpaceCalendar"])
   onUpdateSpaceCalendar: SpaceCalendar @aws_subscribe(mutations: ["updateSpaceCalendar"])
   onDeleteSpaceCalendar: SpaceCalendar @aws_subscribe(mutations: ["deleteSpaceCalendar"])
@@ -360,43 +360,43 @@ input DeleteSpaceDataInput {
   id: ID
 }
 
-type ModelSpacePhotosConnection {
-  items: [SpacePhotos]
+type ModelSpacePhotoConnection {
+  items: [SpacePhoto]
   nextToken: String
 }
 
-input ModelSpacePhotosFilterInput {
+input ModelSpacePhotoFilterInput {
   id: ModelIDFilterInput
   name: ModelStringFilterInput
   type: ModelStringFilterInput
   isCover: ModelBooleanFilterInput
   createdAt: ModelStringFilterInput
   updatedAt: ModelStringFilterInput
-  and: [ModelSpacePhotosFilterInput]
-  or: [ModelSpacePhotosFilterInput]
-  not: ModelSpacePhotosFilterInput
+  and: [ModelSpacePhotoFilterInput]
+  or: [ModelSpacePhotoFilterInput]
+  not: ModelSpacePhotoFilterInput
 }
 
-input CreateSpacePhotosInput {
+input CreateSpacePhotoInput {
   name: String
   type: String
   isCover: Boolean
   createdAt: String
   updatedAt: String
-  spacePhotosSpaceId: ID
+  spacePhotoSpaceId: ID
 }
 
-input UpdateSpacePhotosInput {
+input UpdateSpacePhotoInput {
   id: ID!
   name: String
   type: String
   isCover: Boolean
   createdAt: String
   updatedAt: String
-  spacePhotosSpaceId: ID
+  spacePhotoSpaceId: ID
 }
 
-input DeleteSpacePhotosInput {
+input DeleteSpacePhotoInput {
   id: ID
 }
 
@@ -469,41 +469,41 @@ input DeleteReservationInput {
   id: ID
 }
 
-type ModelSpaceBlockedDatesConnection {
-  items: [SpaceBlockedDates]
+type ModelSpaceBlockedDateConnection {
+  items: [SpaceBlockedDate]
   nextToken: String
 }
 
-input ModelSpaceBlockedDatesFilterInput {
+input ModelSpaceBlockedDateFilterInput {
   id: ModelIDFilterInput
   blockedDates: ModelStringFilterInput
   createdAt: ModelStringFilterInput
   updatedAt: ModelStringFilterInput
-  and: [ModelSpaceBlockedDatesFilterInput]
-  or: [ModelSpaceBlockedDatesFilterInput]
-  not: ModelSpaceBlockedDatesFilterInput
+  and: [ModelSpaceBlockedDateFilterInput]
+  or: [ModelSpaceBlockedDateFilterInput]
+  not: ModelSpaceBlockedDateFilterInput
 }
 
-input CreateSpaceBlockedDatesInput {
+input CreateSpaceBlockedDateInput {
   blockedDates: String
   createdAt: String
   updatedAt: String
-  spaceBlockedDatesSpaceId: ID
-  spaceBlockedDatesReservationId: ID
-  spaceBlockedDatesCalendarId: ID
+  spaceBlockedDateSpaceId: ID
+  spaceBlockedDateReservationId: ID
+  spaceBlockedDateCalendarId: ID
 }
 
-input UpdateSpaceBlockedDatesInput {
+input UpdateSpaceBlockedDateInput {
   id: ID!
   blockedDates: String
   createdAt: String
   updatedAt: String
-  spaceBlockedDatesSpaceId: ID
-  spaceBlockedDatesReservationId: ID
-  spaceBlockedDatesCalendarId: ID
+  spaceBlockedDateSpaceId: ID
+  spaceBlockedDateReservationId: ID
+  spaceBlockedDateCalendarId: ID
 }
 
-input DeleteSpaceBlockedDatesInput {
+input DeleteSpaceBlockedDateInput {
   id: ID
 }
 

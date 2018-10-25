@@ -12,7 +12,12 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Home.css';
 
 import { Button } from 'reactstrap';
-import { Analytics } from 'aws-amplify';
+import { Analytics, API, graphqlOperation } from "aws-amplify";
+import * as queries from '../graphql/queries';
+
+
+// Simple query
+// const listSpaces = await API.graphql(graphqlOperation(queries.listSpaces));
 
 class Home extends React.Component {
 

@@ -5,7 +5,7 @@
   "query": {
       "expression": "#connectionAttribute = :connectionAttribute",
       "expressionNames": {
-          "#connectionAttribute": "spaceBlockedDatesSpaceId"
+          "#connectionAttribute": "spaceBlockedDateSpaceId"
     },
       "expressionValues": {
           ":connectionAttribute": {
@@ -33,5 +33,5 @@
   #else
     null
   #end,
-  "index": "gsi-SpaceBlockedDates"
+  "index": "gsi-SpaceBlockedDate"
 }
