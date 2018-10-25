@@ -1,0 +1,600 @@
+type Space {
+  id: ID!
+  userId: String!
+  spaceType: String
+  spaceSize: String
+  spaceCapacity: Int
+  country: String
+  state: String
+  city: String
+  address: String
+  postCode: Int
+  lat: String
+  lon: String
+  title: String
+  description: String
+  spaceData: SpaceData
+  photos(filter: ModelSpacePhotosFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpacePhotosConnection
+  reservation: Reservation
+  blockedDates(filter: ModelSpaceBlockedDatesFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpaceBlockedDatesConnection
+  calendar: SpaceCalendar
+  bookingType: String
+  isPublished: Boolean
+  isReady: Boolean
+  createdAt: String
+  updatedAt: String
+}
+
+type SpaceData {
+  id: ID!
+  space: Space
+  bookingNoticeTime: String
+  minTime: Int
+  maxTime: Int
+  basePrice: Float
+  halfDayDiscount: String
+  fullDayDiscount: String
+  createdAt: String
+  updatedAt: String
+}
+
+type SpacePhotos {
+  id: ID!
+  space: Space
+  name: String
+  type: String
+  isCover: Boolean
+  createdAt: String
+  updatedAt: String
+}
+
+type Reservation {
+  id: ID!
+  space: Space
+  blockedDates(filter: ModelSpaceBlockedDatesFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpaceBlockedDatesConnection
+  transaction: Transaction
+  guestId: String
+  checkIn: String
+  checkOut: String
+  guests: Int
+  message: String
+  basePrice: Float
+  discount: Float
+  discountType: String
+  total: Float
+  confirmationCode: Int
+  paymentState: String
+  reservationState: String
+  createdAt: String
+  updatedAt: String
+}
+
+type SpaceBlockedDates {
+  id: ID!
+  space: Space
+  reservation: Reservation
+  calendar: SpaceCalendar
+  blockedDates: String
+  createdAt: String
+  updatedAt: String
+}
+
+type SpaceCalendar {
+  id: ID!
+  space: Space
+  name: String
+  url: String
+  createdAt: String
+  updatedAt: String
+}
+
+type Transaction {
+  id: ID!
+  reservation: Reservation
+  payerEmail: String
+  payerId: String
+  transactionId: String
+  total: Float
+  transactionFee: Float
+  currency: String
+  ipn_track_id: String
+  paymentType: String
+  createdAt: String
+  updatedAt: String
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelSpaceConnection {
+  items: [Space]
+  nextToken: String
+}
+
+input ModelStringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+}
+
+input ModelIDFilterInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+}
+
+input ModelIntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  contains: Int
+  notContains: Int
+  between: [Int]
+}
+
+input ModelFloatFilterInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  contains: Float
+  notContains: Float
+  between: [Float]
+}
+
+input ModelBooleanFilterInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelSpaceFilterInput {
+  id: ModelIDFilterInput
+  userId: ModelStringFilterInput
+  spaceType: ModelStringFilterInput
+  spaceSize: ModelStringFilterInput
+  spaceCapacity: ModelIntFilterInput
+  country: ModelStringFilterInput
+  state: ModelStringFilterInput
+  city: ModelStringFilterInput
+  address: ModelStringFilterInput
+  postCode: ModelIntFilterInput
+  lat: ModelStringFilterInput
+  lon: ModelStringFilterInput
+  title: ModelStringFilterInput
+  description: ModelStringFilterInput
+  bookingType: ModelStringFilterInput
+  isPublished: ModelBooleanFilterInput
+  isReady: ModelBooleanFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  and: [ModelSpaceFilterInput]
+  or: [ModelSpaceFilterInput]
+  not: ModelSpaceFilterInput
+}
+
+type Query {
+  getSpace(id: ID!): Space
+  listSpaces(filter: ModelSpaceFilterInput, limit: Int, nextToken: String): ModelSpaceConnection
+  getSpaceData(id: ID!): SpaceData
+  listSpaceDatas(filter: ModelSpaceDataFilterInput, limit: Int, nextToken: String): ModelSpaceDataConnection
+  getSpacePhotos(id: ID!): SpacePhotos
+  listSpacePhotoss(filter: ModelSpacePhotosFilterInput, limit: Int, nextToken: String): ModelSpacePhotosConnection
+  getReservation(id: ID!): Reservation
+  listReservations(filter: ModelReservationFilterInput, limit: Int, nextToken: String): ModelReservationConnection
+  getSpaceBlockedDates(id: ID!): SpaceBlockedDates
+  listSpaceBlockedDatess(filter: ModelSpaceBlockedDatesFilterInput, limit: Int, nextToken: String): ModelSpaceBlockedDatesConnection
+  getSpaceCalendar(id: ID!): SpaceCalendar
+  listSpaceCalendars(filter: ModelSpaceCalendarFilterInput, limit: Int, nextToken: String): ModelSpaceCalendarConnection
+  getTransaction(id: ID!): Transaction
+  listTransactions(filter: ModelTransactionFilterInput, limit: Int, nextToken: String): ModelTransactionConnection
+}
+
+input CreateSpaceInput {
+  userId: String!
+  spaceType: String
+  spaceSize: String
+  spaceCapacity: Int
+  country: String
+  state: String
+  city: String
+  address: String
+  postCode: Int
+  lat: String
+  lon: String
+  title: String
+  description: String
+  bookingType: String
+  isPublished: Boolean
+  isReady: Boolean
+  createdAt: String
+  updatedAt: String
+  spaceSpaceDataId: ID
+  spaceReservationId: ID
+  spaceCalendarId: ID
+}
+
+input UpdateSpaceInput {
+  id: ID!
+  userId: String
+  spaceType: String
+  spaceSize: String
+  spaceCapacity: Int
+  country: String
+  state: String
+  city: String
+  address: String
+  postCode: Int
+  lat: String
+  lon: String
+  title: String
+  description: String
+  bookingType: String
+  isPublished: Boolean
+  isReady: Boolean
+  createdAt: String
+  updatedAt: String
+  spaceSpaceDataId: ID
+  spaceReservationId: ID
+  spaceCalendarId: ID
+}
+
+input DeleteSpaceInput {
+  id: ID
+}
+
+type Mutation {
+  createSpace(input: CreateSpaceInput!): Space
+  updateSpace(input: UpdateSpaceInput!): Space
+  deleteSpace(input: DeleteSpaceInput!): Space
+  createSpaceData(input: CreateSpaceDataInput!): SpaceData
+  updateSpaceData(input: UpdateSpaceDataInput!): SpaceData
+  deleteSpaceData(input: DeleteSpaceDataInput!): SpaceData
+  createSpacePhotos(input: CreateSpacePhotosInput!): SpacePhotos
+  updateSpacePhotos(input: UpdateSpacePhotosInput!): SpacePhotos
+  deleteSpacePhotos(input: DeleteSpacePhotosInput!): SpacePhotos
+  createReservation(input: CreateReservationInput!): Reservation
+  updateReservation(input: UpdateReservationInput!): Reservation
+  deleteReservation(input: DeleteReservationInput!): Reservation
+  createSpaceBlockedDates(input: CreateSpaceBlockedDatesInput!): SpaceBlockedDates
+  updateSpaceBlockedDates(input: UpdateSpaceBlockedDatesInput!): SpaceBlockedDates
+  deleteSpaceBlockedDates(input: DeleteSpaceBlockedDatesInput!): SpaceBlockedDates
+  createSpaceCalendar(input: CreateSpaceCalendarInput!): SpaceCalendar
+  updateSpaceCalendar(input: UpdateSpaceCalendarInput!): SpaceCalendar
+  deleteSpaceCalendar(input: DeleteSpaceCalendarInput!): SpaceCalendar
+  createTransaction(input: CreateTransactionInput!): Transaction
+  updateTransaction(input: UpdateTransactionInput!): Transaction
+  deleteTransaction(input: DeleteTransactionInput!): Transaction
+}
+
+type Subscription {
+  onCreateSpace: Space @aws_subscribe(mutations: ["createSpace"])
+  onUpdateSpace: Space @aws_subscribe(mutations: ["updateSpace"])
+  onDeleteSpace: Space @aws_subscribe(mutations: ["deleteSpace"])
+  onCreateSpaceData: SpaceData @aws_subscribe(mutations: ["createSpaceData"])
+  onUpdateSpaceData: SpaceData @aws_subscribe(mutations: ["updateSpaceData"])
+  onDeleteSpaceData: SpaceData @aws_subscribe(mutations: ["deleteSpaceData"])
+  onCreateSpacePhotos: SpacePhotos @aws_subscribe(mutations: ["createSpacePhotos"])
+  onUpdateSpacePhotos: SpacePhotos @aws_subscribe(mutations: ["updateSpacePhotos"])
+  onDeleteSpacePhotos: SpacePhotos @aws_subscribe(mutations: ["deleteSpacePhotos"])
+  onCreateReservation: Reservation @aws_subscribe(mutations: ["createReservation"])
+  onUpdateReservation: Reservation @aws_subscribe(mutations: ["updateReservation"])
+  onDeleteReservation: Reservation @aws_subscribe(mutations: ["deleteReservation"])
+  onCreateSpaceBlockedDates: SpaceBlockedDates @aws_subscribe(mutations: ["createSpaceBlockedDates"])
+  onUpdateSpaceBlockedDates: SpaceBlockedDates @aws_subscribe(mutations: ["updateSpaceBlockedDates"])
+  onDeleteSpaceBlockedDates: SpaceBlockedDates @aws_subscribe(mutations: ["deleteSpaceBlockedDates"])
+  onCreateSpaceCalendar: SpaceCalendar @aws_subscribe(mutations: ["createSpaceCalendar"])
+  onUpdateSpaceCalendar: SpaceCalendar @aws_subscribe(mutations: ["updateSpaceCalendar"])
+  onDeleteSpaceCalendar: SpaceCalendar @aws_subscribe(mutations: ["deleteSpaceCalendar"])
+  onCreateTransaction: Transaction @aws_subscribe(mutations: ["createTransaction"])
+  onUpdateTransaction: Transaction @aws_subscribe(mutations: ["updateTransaction"])
+  onDeleteTransaction: Transaction @aws_subscribe(mutations: ["deleteTransaction"])
+}
+
+type ModelSpaceDataConnection {
+  items: [SpaceData]
+  nextToken: String
+}
+
+input ModelSpaceDataFilterInput {
+  id: ModelIDFilterInput
+  bookingNoticeTime: ModelStringFilterInput
+  minTime: ModelIntFilterInput
+  maxTime: ModelIntFilterInput
+  basePrice: ModelFloatFilterInput
+  halfDayDiscount: ModelStringFilterInput
+  fullDayDiscount: ModelStringFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  and: [ModelSpaceDataFilterInput]
+  or: [ModelSpaceDataFilterInput]
+  not: ModelSpaceDataFilterInput
+}
+
+input CreateSpaceDataInput {
+  bookingNoticeTime: String
+  minTime: Int
+  maxTime: Int
+  basePrice: Float
+  halfDayDiscount: String
+  fullDayDiscount: String
+  createdAt: String
+  updatedAt: String
+  spaceDataSpaceId: ID
+}
+
+input UpdateSpaceDataInput {
+  id: ID!
+  bookingNoticeTime: String
+  minTime: Int
+  maxTime: Int
+  basePrice: Float
+  halfDayDiscount: String
+  fullDayDiscount: String
+  createdAt: String
+  updatedAt: String
+  spaceDataSpaceId: ID
+}
+
+input DeleteSpaceDataInput {
+  id: ID
+}
+
+type ModelSpacePhotosConnection {
+  items: [SpacePhotos]
+  nextToken: String
+}
+
+input ModelSpacePhotosFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  type: ModelStringFilterInput
+  isCover: ModelBooleanFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  and: [ModelSpacePhotosFilterInput]
+  or: [ModelSpacePhotosFilterInput]
+  not: ModelSpacePhotosFilterInput
+}
+
+input CreateSpacePhotosInput {
+  name: String
+  type: String
+  isCover: Boolean
+  createdAt: String
+  updatedAt: String
+  spacePhotosSpaceId: ID
+}
+
+input UpdateSpacePhotosInput {
+  id: ID!
+  name: String
+  type: String
+  isCover: Boolean
+  createdAt: String
+  updatedAt: String
+  spacePhotosSpaceId: ID
+}
+
+input DeleteSpacePhotosInput {
+  id: ID
+}
+
+type ModelReservationConnection {
+  items: [Reservation]
+  nextToken: String
+}
+
+input ModelReservationFilterInput {
+  id: ModelIDFilterInput
+  guestId: ModelStringFilterInput
+  checkIn: ModelStringFilterInput
+  checkOut: ModelStringFilterInput
+  guests: ModelIntFilterInput
+  message: ModelStringFilterInput
+  basePrice: ModelFloatFilterInput
+  discount: ModelFloatFilterInput
+  discountType: ModelStringFilterInput
+  total: ModelFloatFilterInput
+  confirmationCode: ModelIntFilterInput
+  paymentState: ModelStringFilterInput
+  reservationState: ModelStringFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  and: [ModelReservationFilterInput]
+  or: [ModelReservationFilterInput]
+  not: ModelReservationFilterInput
+}
+
+input CreateReservationInput {
+  guestId: String
+  checkIn: String
+  checkOut: String
+  guests: Int
+  message: String
+  basePrice: Float
+  discount: Float
+  discountType: String
+  total: Float
+  confirmationCode: Int
+  paymentState: String
+  reservationState: String
+  createdAt: String
+  updatedAt: String
+  reservationSpaceId: ID
+  reservationTransactionId: ID
+}
+
+input UpdateReservationInput {
+  id: ID!
+  guestId: String
+  checkIn: String
+  checkOut: String
+  guests: Int
+  message: String
+  basePrice: Float
+  discount: Float
+  discountType: String
+  total: Float
+  confirmationCode: Int
+  paymentState: String
+  reservationState: String
+  createdAt: String
+  updatedAt: String
+  reservationSpaceId: ID
+  reservationTransactionId: ID
+}
+
+input DeleteReservationInput {
+  id: ID
+}
+
+type ModelSpaceBlockedDatesConnection {
+  items: [SpaceBlockedDates]
+  nextToken: String
+}
+
+input ModelSpaceBlockedDatesFilterInput {
+  id: ModelIDFilterInput
+  blockedDates: ModelStringFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  and: [ModelSpaceBlockedDatesFilterInput]
+  or: [ModelSpaceBlockedDatesFilterInput]
+  not: ModelSpaceBlockedDatesFilterInput
+}
+
+input CreateSpaceBlockedDatesInput {
+  blockedDates: String
+  createdAt: String
+  updatedAt: String
+  spaceBlockedDatesSpaceId: ID
+  spaceBlockedDatesReservationId: ID
+  spaceBlockedDatesCalendarId: ID
+}
+
+input UpdateSpaceBlockedDatesInput {
+  id: ID!
+  blockedDates: String
+  createdAt: String
+  updatedAt: String
+  spaceBlockedDatesSpaceId: ID
+  spaceBlockedDatesReservationId: ID
+  spaceBlockedDatesCalendarId: ID
+}
+
+input DeleteSpaceBlockedDatesInput {
+  id: ID
+}
+
+type ModelSpaceCalendarConnection {
+  items: [SpaceCalendar]
+  nextToken: String
+}
+
+input ModelSpaceCalendarFilterInput {
+  id: ModelIDFilterInput
+  name: ModelStringFilterInput
+  url: ModelStringFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  and: [ModelSpaceCalendarFilterInput]
+  or: [ModelSpaceCalendarFilterInput]
+  not: ModelSpaceCalendarFilterInput
+}
+
+input CreateSpaceCalendarInput {
+  name: String
+  url: String
+  createdAt: String
+  updatedAt: String
+  spaceCalendarSpaceId: ID
+}
+
+input UpdateSpaceCalendarInput {
+  id: ID!
+  name: String
+  url: String
+  createdAt: String
+  updatedAt: String
+  spaceCalendarSpaceId: ID
+}
+
+input DeleteSpaceCalendarInput {
+  id: ID
+}
+
+type ModelTransactionConnection {
+  items: [Transaction]
+  nextToken: String
+}
+
+input ModelTransactionFilterInput {
+  id: ModelIDFilterInput
+  payerEmail: ModelStringFilterInput
+  payerId: ModelStringFilterInput
+  transactionId: ModelStringFilterInput
+  total: ModelFloatFilterInput
+  transactionFee: ModelFloatFilterInput
+  currency: ModelStringFilterInput
+  ipn_track_id: ModelStringFilterInput
+  paymentType: ModelStringFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  and: [ModelTransactionFilterInput]
+  or: [ModelTransactionFilterInput]
+  not: ModelTransactionFilterInput
+}
+
+input CreateTransactionInput {
+  payerEmail: String
+  payerId: String
+  transactionId: String
+  total: Float
+  transactionFee: Float
+  currency: String
+  ipn_track_id: String
+  paymentType: String
+  createdAt: String
+  updatedAt: String
+  transactionReservationId: ID
+}
+
+input UpdateTransactionInput {
+  id: ID!
+  payerEmail: String
+  payerId: String
+  transactionId: String
+  total: Float
+  transactionFee: Float
+  currency: String
+  ipn_track_id: String
+  paymentType: String
+  createdAt: String
+  updatedAt: String
+  transactionReservationId: ID
+}
+
+input DeleteTransactionInput {
+  id: ID
+}

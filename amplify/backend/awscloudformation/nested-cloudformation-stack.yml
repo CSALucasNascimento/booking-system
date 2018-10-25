@@ -145,11 +145,17 @@
 				}
 			}
 		},
-		"hostingS3AndCloudFront": {
+		"apibookingsystem": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/ookingystem-20181023185535-deployment/amplify-cfn-templates/hosting/template.json",
-				"Parameters": {}
+				"TemplateURL": "https://s3.amazonaws.com/ookingystem-20181023185535-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"Parameters": {
+					"AppSyncApiName": "bookingsystem",
+					"schemaGraphql": "s3://ookingystem-20181023185535-deployment/amplify-appsync-files/schema.graphql.1540468364114",
+					"ResolverBucket": "ookingystem-20181023185535-deployment",
+					"ResolverRootKey": "amplify-appsync-files",
+					"DeploymentTimestamp": "1540468364114"
+				}
 			}
 		}
 	},
