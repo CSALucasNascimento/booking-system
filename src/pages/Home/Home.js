@@ -27,12 +27,14 @@ class Home extends React.Component {
   }
 
   renderSpaces = (space) => {
-    <div>
-      <h3>All Space</h3>
-      <ul>
-        <li key={space.id} >{space.title}</li>
-      </ul>
-    </div>
+    return (
+      <div key={space.id}>
+        <h3>All Space</h3>
+        <ul>
+          <li>{space.title}</li>
+        </ul>
+      </div>
+    )
   }
 
   render() {
@@ -46,8 +48,7 @@ class Home extends React.Component {
               ({data: {listSpaces}, loading, error}) => {
                 if (error) return (<h3>Error</h3>);
                 if (loading || !listSpaces ) return (<h3>Loading...</h3>);
-                [].concat(listSpaces.items).sort((a, b) => b.id - a.id).map(this.renderSpaces)
-                console.log(listSpaces.items)
+                return ([].concat(listSpaces.items).sort((a, b) => b.id - a.id).map(this.renderSpaces))
               }
             }
           </Connect>
