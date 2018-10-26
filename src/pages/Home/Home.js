@@ -26,17 +26,16 @@ class Home extends React.Component {
     });
   }
 
-  render() {
-    
-    const ListSpaces = ({ spaces }) => (
-      <div>
-        <h3>All Space</h3>
-        <ul>
-          { spaces.map( (space) => <li key={space.id} >{space.title}</li> ) }
-        </ul>
-      </div>
-    );
+  renderSpaces = (space) => {
+    <div>
+      <h3>All Space</h3>
+      <ul>
+        <li key={space.id} >{space.title}</li>
+      </ul>
+    </div>
+  }
 
+  render() {
     return (
       <div className={s.root}>
         <div className={s.container}>
@@ -47,7 +46,8 @@ class Home extends React.Component {
               ({data: {listSpaces}, loading, error}) => {
                 if (error) return (<h3>Error</h3>);
                 if (loading || !listSpaces ) return (<h3>Loading...</h3>);
-                <ListSpaces spaces={listSpaces.items} />
+                [].concat(listSpaces.items).sort((a, b) => b.id - a.id).map(this.renderSpaces)
+                console.log(listSpaces.items)
               }
             }
           </Connect>
