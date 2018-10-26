@@ -151,10 +151,12 @@
 				"TemplateURL": "https://s3.amazonaws.com/ookingystem-20181026083347-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"Parameters": {
 					"AppSyncApiName": "bookingsystem",
-					"schemaGraphql": "s3://ookingystem-20181026083347-deployment/amplify-appsync-files/schema.graphql.1540504258825",
+					"ElasticSearchStreamingLambdaCodeS3Key": "amplify-appsync-files/python_streaming_function.zip",
+					"ElasticSearchStreamingLambdaCodeS3Bucket": "ookingystem-20181026083347-deployment",
+					"schemaGraphql": "s3://ookingystem-20181026083347-deployment/amplify-appsync-files/schema.graphql.1540527580496",
 					"ResolverBucket": "ookingystem-20181026083347-deployment",
 					"ResolverRootKey": "amplify-appsync-files",
-					"DeploymentTimestamp": "1540504258825"
+					"DeploymentTimestamp": "1540527580496"
 				}
 			}
 		}

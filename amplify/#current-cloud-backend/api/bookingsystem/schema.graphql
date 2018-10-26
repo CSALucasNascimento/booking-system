@@ -1,4 +1,4 @@
-type Space @model {
+type Space @model @versioned @searchable{
   id: ID!
   userId: String!
   spaceType: String
@@ -13,30 +13,30 @@ type Space @model {
   lon: String
   title: String
   description: String
-  spaceData: SpaceData @connection(name: "SpaceData")
+  spaceData: SpaceData @connection
   photos: [SpacePhoto] @connection(name: "SpacePhoto")
-  reservation: Reservation @connection(name: "SpaceReservation")
+  reservation: [Reservation] @connection(name: "SpaceReservation")
   blockedDates:[SpaceBlockedDate] @connection(name: "SpaceBlockedDate")
-  calendar: SpaceCalendar @connection(name: "SpaceCalendar")
+  calendar: [SpaceCalendar] @connection(name: "SpaceCalendar")
   bookingType: String
   isPublished: Boolean
   isReady: Boolean
   createdAt: String
   updatedAt: String
 }
-type SpaceData @model {
+type SpaceData @model @versioned{
   id: ID!
-  space: Space @connection(name: "SpaceData")
   bookingNoticeTime: String
   minTime: Int
   maxTime: Int
   basePrice: Float
   halfDayDiscount: String
   fullDayDiscount: String
+  manualDayDiscount: String
   createdAt: String
   updatedAt: String
 }
-type SpacePhoto @model {
+type SpacePhoto @model @versioned{
   id: ID!
   space: Space @connection(name: "SpacePhoto")
   name: String
@@ -45,14 +45,12 @@ type SpacePhoto @model {
   createdAt: String
   updatedAt: String
 }
-type Reservation @model {
+type Reservation @model @versioned{
   id: ID!
   space: Space @connection(name: "SpaceReservation")
   blockedDates: [SpaceBlockedDate] @connection(name: "ReservationBlockedDate")
-  transaction: Transaction @connection(name: "ReservationTransaction")
   guestId: String
-  checkIn: String
-  checkOut: String
+  slot: [ReservationSlot] @connection
   guests: Int
   message: String
   basePrice: Float
@@ -65,7 +63,14 @@ type Reservation @model {
   createdAt: String
   updatedAt: String
 }
-type SpaceBlockedDate @model {
+type ReservationSlot @model @versioned{
+  id: ID!
+  checkIn: String
+  checkOut: String
+  createdAt: String
+  updatedAt: String
+}
+type SpaceBlockedDate @model @versioned{
   id: ID!
   space: Space @connection(name: "SpaceBlockedDate")
   reservation: Reservation @connection(name: "ReservationBlockedDate")
@@ -74,7 +79,7 @@ type SpaceBlockedDate @model {
   createdAt: String
   updatedAt: String
 }
-type SpaceCalendar @model {
+type SpaceCalendar @model @versioned{
   id: ID!
   space: Space @connection(name: "SpaceCalendar")
   name: String
@@ -82,9 +87,9 @@ type SpaceCalendar @model {
   createdAt: String
   updatedAt: String
 }
-type Transaction @model {
+type Transaction @model @versioned{
   id: ID!
-  reservation: Reservation @connection(name: "ReservationTransaction")
+  reservation: Reservation @connection
   payerEmail: String
   payerId: String
   transactionId: String

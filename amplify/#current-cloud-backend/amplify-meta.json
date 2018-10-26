@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/ookingystem-20181026083347-deployment/amplify-cfn-templates/auth/cognitoa5a2f1b1-cloudformation-template.yml",
 				"logicalId": "authcognitoa5a2f1b1"
 			},
-			"lastPushTimeStamp": "2018-10-25T21:53:55.651Z",
+			"lastPushTimeStamp": "2018-10-26T04:31:30.951Z",
 			"output": {
 				"IdentityPoolId": "us-east-1:79fde03a-b37f-400c-8ef0-9eafc1198c6e",
 				"IdentityPoolName": "bookingsystem_identitypool_968f1683",
@@ -41,7 +41,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/ookingystem-20181026083347-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
 				"logicalId": "analyticsbookingsystem"
 			},
-			"lastPushTimeStamp": "2018-10-25T21:53:55.649Z",
+			"lastPushTimeStamp": "2018-10-26T04:31:30.953Z",
 			"output": {
 				"appName": "bookingsystem",
 				"Region": "us-east-1",
@@ -64,8 +64,8 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/ookingystem-20181026083347-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apibookingsystem"
 			},
-			"lastPushTimeStamp": "2018-10-25T21:53:55.651Z",
-			"lastPushDirHash": "tpcZcH7DgxrMBmPSw9VfCQxQGG0="
+			"lastPushTimeStamp": "2018-10-26T04:31:35.904Z",
+			"lastPushDirHash": "zHwTm5rPCym7lY6V1orevp7Gjc0="
 		}
 	}
 }

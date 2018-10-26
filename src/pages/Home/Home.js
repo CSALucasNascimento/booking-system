@@ -73,7 +73,6 @@ class AddSpace extends React.Component {
       createdAt: this.state.createdAt,
       updatedAt: this.state.updatedAt
     }
-    console.log(input);
     await onCreateSpace({input})
   }
 
@@ -101,7 +100,6 @@ class AddSpace extends React.Component {
 class Home extends React.Component {
 
   handleAnalytics = () => {
-    console.log('analytics call');
     Analytics.record({
       name: "testing Analytics"
     });
@@ -130,15 +128,13 @@ class Home extends React.Component {
             query={graphqlOperation(queries.listSpaces)}
             subscription={graphqlOperation(subscriptions.onCreateSpace)}
             onSubscriptionMsg={(prev, { onCreateSpace }) => {
-                console.log ( onCreateSpace );
-                return prev; 
+              return prev; 
             }}
           >
             {
               ({data: {listSpaces}, loading, error}) => {
                 if (error) return (<h3>Error</h3>);
                 if (loading || !listSpaces ) return (<h3>Loading...</h3>);
-                
                 return (
                   <div >
                     <ul>

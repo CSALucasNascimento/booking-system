@@ -15,27 +15,29 @@ type Space {
   description: String
   spaceData: SpaceData
   photos(filter: ModelSpacePhotoFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpacePhotoConnection
-  reservation: Reservation
+  reservation(filter: ModelReservationFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelReservationConnection
   blockedDates(filter: ModelSpaceBlockedDateFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpaceBlockedDateConnection
-  calendar: SpaceCalendar
+  calendar(filter: ModelSpaceCalendarFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpaceCalendarConnection
   bookingType: String
   isPublished: Boolean
   isReady: Boolean
   createdAt: String
   updatedAt: String
+  version: Int!
 }
 
 type SpaceData {
   id: ID!
-  space: Space
   bookingNoticeTime: String
   minTime: Int
   maxTime: Int
   basePrice: Float
   halfDayDiscount: String
   fullDayDiscount: String
+  manualDayDiscount: String
   createdAt: String
   updatedAt: String
+  version: Int!
 }
 
 type SpacePhoto {
@@ -46,16 +48,15 @@ type SpacePhoto {
   isCover: Boolean
   createdAt: String
   updatedAt: String
+  version: Int!
 }
 
 type Reservation {
   id: ID!
   space: Space
   blockedDates(filter: ModelSpaceBlockedDateFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpaceBlockedDateConnection
-  transaction: Transaction
   guestId: String
-  checkIn: String
-  checkOut: String
+  slot(filter: ModelReservationSlotFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelReservationSlotConnection
   guests: Int
   message: String
   basePrice: Float
@@ -67,6 +68,16 @@ type Reservation {
   reservationState: String
   createdAt: String
   updatedAt: String
+  version: Int!
+}
+
+type ReservationSlot {
+  id: ID!
+  checkIn: String
+  checkOut: String
+  createdAt: String
+  updatedAt: String
+  version: Int!
 }
 
 type SpaceBlockedDate {
@@ -77,6 +88,7 @@ type SpaceBlockedDate {
   blockedDates: String
   createdAt: String
   updatedAt: String
+  version: Int!
 }
 
 type SpaceCalendar {
@@ -86,6 +98,7 @@ type SpaceCalendar {
   url: String
   createdAt: String
   updatedAt: String
+  version: Int!
 }
 
 type Transaction {
@@ -101,6 +114,7 @@ type Transaction {
   paymentType: String
   createdAt: String
   updatedAt: String
+  version: Int!
 }
 
 enum ModelSortDirection {
@@ -202,12 +216,15 @@ type Query {
   listSpacePhotos(filter: ModelSpacePhotoFilterInput, limit: Int, nextToken: String): ModelSpacePhotoConnection
   getReservation(id: ID!): Reservation
   listReservations(filter: ModelReservationFilterInput, limit: Int, nextToken: String): ModelReservationConnection
+  getReservationSlot(id: ID!): ReservationSlot
+  listReservationSlots(filter: ModelReservationSlotFilterInput, limit: Int, nextToken: String): ModelReservationSlotConnection
   getSpaceBlockedDate(id: ID!): SpaceBlockedDate
   listSpaceBlockedDates(filter: ModelSpaceBlockedDateFilterInput, limit: Int, nextToken: String): ModelSpaceBlockedDateConnection
   getSpaceCalendar(id: ID!): SpaceCalendar
   listSpaceCalendars(filter: ModelSpaceCalendarFilterInput, limit: Int, nextToken: String): ModelSpaceCalendarConnection
   getTransaction(id: ID!): Transaction
   listTransactions(filter: ModelTransactionFilterInput, limit: Int, nextToken: String): ModelTransactionConnection
+  searchSpaces(filter: SearchableSpaceFilterInput, sort: SearchableSpaceSortInput, limit: Int, nextToken: Int): SearchableSpaceConnection
 }
 
 input CreateSpaceInput {
@@ -230,8 +247,6 @@ input CreateSpaceInput {
   createdAt: String
   updatedAt: String
   spaceSpaceDataId: ID
-  spaceReservationId: ID
-  spaceCalendarId: ID
 }
 
 input UpdateSpaceInput {
@@ -255,12 +270,12 @@ input UpdateSpaceInput {
   createdAt: String
   updatedAt: String
   spaceSpaceDataId: ID
-  spaceReservationId: ID
-  spaceCalendarId: ID
+  expectedVersion: Int!
 }
 
 input DeleteSpaceInput {
   id: ID
+  expectedVersion: Int!
 }
 
 type Mutation {
@@ -276,6 +291,9 @@ type Mutation {
   createReservation(input: CreateReservationInput!): Reservation
   updateReservation(input: UpdateReservationInput!): Reservation
   deleteReservation(input: DeleteReservationInput!): Reservation
+  createReservationSlot(input: CreateReservationSlotInput!): ReservationSlot
+  updateReservationSlot(input: UpdateReservationSlotInput!): ReservationSlot
+  deleteReservationSlot(input: DeleteReservationSlotInput!): ReservationSlot
   createSpaceBlockedDate(input: CreateSpaceBlockedDateInput!): SpaceBlockedDate
   updateSpaceBlockedDate(input: UpdateSpaceBlockedDateInput!): SpaceBlockedDate
   deleteSpaceBlockedDate(input: DeleteSpaceBlockedDateInput!): SpaceBlockedDate
@@ -300,6 +318,9 @@ type Subscription {
   onCreateReservation: Reservation @aws_subscribe(mutations: ["createReservation"])
   onUpdateReservation: Reservation @aws_subscribe(mutations: ["updateReservation"])
   onDeleteReservation: Reservation @aws_subscribe(mutations: ["deleteReservation"])
+  onCreateReservationSlot: ReservationSlot @aws_subscribe(mutations: ["createReservationSlot"])
+  onUpdateReservationSlot: ReservationSlot @aws_subscribe(mutations: ["updateReservationSlot"])
+  onDeleteReservationSlot: ReservationSlot @aws_subscribe(mutations: ["deleteReservationSlot"])
   onCreateSpaceBlockedDate: SpaceBlockedDate @aws_subscribe(mutations: ["createSpaceBlockedDate"])
   onUpdateSpaceBlockedDate: SpaceBlockedDate @aws_subscribe(mutations: ["updateSpaceBlockedDate"])
   onDeleteSpaceBlockedDate: SpaceBlockedDate @aws_subscribe(mutations: ["deleteSpaceBlockedDate"])
@@ -324,6 +345,7 @@ input ModelSpaceDataFilterInput {
   basePrice: ModelFloatFilterInput
   halfDayDiscount: ModelStringFilterInput
   fullDayDiscount: ModelStringFilterInput
+  manualDayDiscount: ModelStringFilterInput
   createdAt: ModelStringFilterInput
   updatedAt: ModelStringFilterInput
   and: [ModelSpaceDataFilterInput]
@@ -338,9 +360,9 @@ input CreateSpaceDataInput {
   basePrice: Float
   halfDayDiscount: String
   fullDayDiscount: String
+  manualDayDiscount: String
   createdAt: String
   updatedAt: String
-  spaceDataSpaceId: ID
 }
 
 input UpdateSpaceDataInput {
@@ -351,13 +373,15 @@ input UpdateSpaceDataInput {
   basePrice: Float
   halfDayDiscount: String
   fullDayDiscount: String
+  manualDayDiscount: String
   createdAt: String
   updatedAt: String
-  spaceDataSpaceId: ID
+  expectedVersion: Int!
 }
 
 input DeleteSpaceDataInput {
   id: ID
+  expectedVersion: Int!
 }
 
 type ModelSpacePhotoConnection {
@@ -394,10 +418,12 @@ input UpdateSpacePhotoInput {
   createdAt: String
   updatedAt: String
   spacePhotoSpaceId: ID
+  expectedVersion: Int!
 }
 
 input DeleteSpacePhotoInput {
   id: ID
+  expectedVersion: Int!
 }
 
 type ModelReservationConnection {
@@ -408,8 +434,6 @@ type ModelReservationConnection {
 input ModelReservationFilterInput {
   id: ModelIDFilterInput
   guestId: ModelStringFilterInput
-  checkIn: ModelStringFilterInput
-  checkOut: ModelStringFilterInput
   guests: ModelIntFilterInput
   message: ModelStringFilterInput
   basePrice: ModelFloatFilterInput
@@ -428,8 +452,6 @@ input ModelReservationFilterInput {
 
 input CreateReservationInput {
   guestId: String
-  checkIn: String
-  checkOut: String
   guests: Int
   message: String
   basePrice: Float
@@ -442,14 +464,11 @@ input CreateReservationInput {
   createdAt: String
   updatedAt: String
   reservationSpaceId: ID
-  reservationTransactionId: ID
 }
 
 input UpdateReservationInput {
   id: ID!
   guestId: String
-  checkIn: String
-  checkOut: String
   guests: Int
   message: String
   basePrice: Float
@@ -462,11 +481,51 @@ input UpdateReservationInput {
   createdAt: String
   updatedAt: String
   reservationSpaceId: ID
-  reservationTransactionId: ID
+  expectedVersion: Int!
 }
 
 input DeleteReservationInput {
   id: ID
+  expectedVersion: Int!
+}
+
+type ModelReservationSlotConnection {
+  items: [ReservationSlot]
+  nextToken: String
+}
+
+input ModelReservationSlotFilterInput {
+  id: ModelIDFilterInput
+  checkIn: ModelStringFilterInput
+  checkOut: ModelStringFilterInput
+  createdAt: ModelStringFilterInput
+  updatedAt: ModelStringFilterInput
+  and: [ModelReservationSlotFilterInput]
+  or: [ModelReservationSlotFilterInput]
+  not: ModelReservationSlotFilterInput
+}
+
+input CreateReservationSlotInput {
+  checkIn: String
+  checkOut: String
+  createdAt: String
+  updatedAt: String
+  reservationSlotId: ID
+}
+
+input UpdateReservationSlotInput {
+  id: ID!
+  checkIn: String
+  checkOut: String
+  createdAt: String
+  updatedAt: String
+  reservationSlotId: ID
+  expectedVersion: Int!
+}
+
+input DeleteReservationSlotInput {
+  id: ID
+  expectedVersion: Int!
 }
 
 type ModelSpaceBlockedDateConnection {
@@ -501,10 +560,12 @@ input UpdateSpaceBlockedDateInput {
   spaceBlockedDateSpaceId: ID
   spaceBlockedDateReservationId: ID
   spaceBlockedDateCalendarId: ID
+  expectedVersion: Int!
 }
 
 input DeleteSpaceBlockedDateInput {
   id: ID
+  expectedVersion: Int!
 }
 
 type ModelSpaceCalendarConnection {
@@ -538,10 +599,12 @@ input UpdateSpaceCalendarInput {
   createdAt: String
   updatedAt: String
   spaceCalendarSpaceId: ID
+  expectedVersion: Int!
 }
 
 input DeleteSpaceCalendarInput {
   id: ID
+  expectedVersion: Int!
 }
 
 type ModelTransactionConnection {
@@ -593,8 +656,121 @@ input UpdateTransactionInput {
   createdAt: String
   updatedAt: String
   transactionReservationId: ID
+  expectedVersion: Int!
 }
 
 input DeleteTransactionInput {
   id: ID
+  expectedVersion: Int!
+}
+
+input SearchableStringFilterInput {
+  ne: String
+  eq: String
+  match: String
+  matchPhrase: String
+  matchPhrasePrefix: String
+  multiMatch: String
+  exists: Boolean
+  wildcard: String
+  regexp: String
+}
+
+input SearchableIDFilterInput {
+  ne: ID
+  eq: ID
+  match: ID
+  matchPhrase: ID
+  matchPhrasePrefix: ID
+  multiMatch: ID
+  exists: Boolean
+  wildcard: ID
+  regexp: ID
+}
+
+input SearchableIntFilterInput {
+  ne: Int
+  gt: Int
+  lt: Int
+  gte: Int
+  lte: Int
+  eq: Int
+  range: [Int]
+}
+
+input SearchableFloatFilterInput {
+  ne: Float
+  gt: Float
+  lt: Float
+  gte: Float
+  lte: Float
+  eq: Float
+  range: [Float]
+}
+
+input SearchableBooleanFilterInput {
+  eq: Boolean
+  ne: Boolean
+}
+
+input SearchableSpaceFilterInput {
+  id: SearchableIDFilterInput
+  userId: SearchableStringFilterInput
+  spaceType: SearchableStringFilterInput
+  spaceSize: SearchableStringFilterInput
+  spaceCapacity: SearchableIntFilterInput
+  country: SearchableStringFilterInput
+  state: SearchableStringFilterInput
+  city: SearchableStringFilterInput
+  address: SearchableStringFilterInput
+  postCode: SearchableIntFilterInput
+  lat: SearchableStringFilterInput
+  lon: SearchableStringFilterInput
+  title: SearchableStringFilterInput
+  description: SearchableStringFilterInput
+  bookingType: SearchableStringFilterInput
+  isPublished: SearchableBooleanFilterInput
+  isReady: SearchableBooleanFilterInput
+  createdAt: SearchableStringFilterInput
+  updatedAt: SearchableStringFilterInput
+  and: [SearchableSpaceFilterInput]
+  or: [SearchableSpaceFilterInput]
+  not: SearchableSpaceFilterInput
+}
+
+enum SearchableSortDirection {
+  asc
+  desc
+}
+
+enum SearchableSpaceSortableFields {
+  id
+  userId
+  spaceType
+  spaceSize
+  spaceCapacity
+  country
+  state
+  city
+  address
+  postCode
+  lat
+  lon
+  title
+  description
+  bookingType
+  isPublished
+  isReady
+  createdAt
+  updatedAt
+}
+
+input SearchableSpaceSortInput {
+  field: SearchableSpaceSortableFields
+  direction: SearchableSortDirection
+}
+
+type SearchableSpaceConnection {
+  items: [Space]
+  nextToken: String
 }

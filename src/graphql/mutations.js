@@ -25,8 +25,10 @@ export const createSpace = `mutation CreateSpace($input: CreateSpaceInput!) {
       basePrice
       halfDayDiscount
       fullDayDiscount
+      manualDayDiscount
       createdAt
       updatedAt
+      version
     }
     photos {
       items {
@@ -36,25 +38,28 @@ export const createSpace = `mutation CreateSpace($input: CreateSpaceInput!) {
         isCover
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     reservation {
-      id
-      guestId
-      checkIn
-      checkOut
-      guests
-      message
-      basePrice
-      discount
-      discountType
-      total
-      confirmationCode
-      paymentState
-      reservationState
-      createdAt
-      updatedAt
+      items {
+        id
+        guestId
+        guests
+        message
+        basePrice
+        discount
+        discountType
+        total
+        confirmationCode
+        paymentState
+        reservationState
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     blockedDates {
       items {
@@ -62,21 +67,27 @@ export const createSpace = `mutation CreateSpace($input: CreateSpaceInput!) {
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     calendar {
-      id
-      name
-      url
-      createdAt
-      updatedAt
+      items {
+        id
+        name
+        url
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     bookingType
     isPublished
     isReady
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -104,8 +115,10 @@ export const updateSpace = `mutation UpdateSpace($input: UpdateSpaceInput!) {
       basePrice
       halfDayDiscount
       fullDayDiscount
+      manualDayDiscount
       createdAt
       updatedAt
+      version
     }
     photos {
       items {
@@ -115,25 +128,28 @@ export const updateSpace = `mutation UpdateSpace($input: UpdateSpaceInput!) {
         isCover
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     reservation {
-      id
-      guestId
-      checkIn
-      checkOut
-      guests
-      message
-      basePrice
-      discount
-      discountType
-      total
-      confirmationCode
-      paymentState
-      reservationState
-      createdAt
-      updatedAt
+      items {
+        id
+        guestId
+        guests
+        message
+        basePrice
+        discount
+        discountType
+        total
+        confirmationCode
+        paymentState
+        reservationState
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     blockedDates {
       items {
@@ -141,21 +157,27 @@ export const updateSpace = `mutation UpdateSpace($input: UpdateSpaceInput!) {
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     calendar {
-      id
-      name
-      url
-      createdAt
-      updatedAt
+      items {
+        id
+        name
+        url
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     bookingType
     isPublished
     isReady
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -183,8 +205,10 @@ export const deleteSpace = `mutation DeleteSpace($input: DeleteSpaceInput!) {
       basePrice
       halfDayDiscount
       fullDayDiscount
+      manualDayDiscount
       createdAt
       updatedAt
+      version
     }
     photos {
       items {
@@ -194,25 +218,28 @@ export const deleteSpace = `mutation DeleteSpace($input: DeleteSpaceInput!) {
         isCover
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     reservation {
-      id
-      guestId
-      checkIn
-      checkOut
-      guests
-      message
-      basePrice
-      discount
-      discountType
-      total
-      confirmationCode
-      paymentState
-      reservationState
-      createdAt
-      updatedAt
+      items {
+        id
+        guestId
+        guests
+        message
+        basePrice
+        discount
+        discountType
+        total
+        confirmationCode
+        paymentState
+        reservationState
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     blockedDates {
       items {
@@ -220,126 +247,75 @@ export const deleteSpace = `mutation DeleteSpace($input: DeleteSpaceInput!) {
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     calendar {
-      id
-      name
-      url
-      createdAt
-      updatedAt
+      items {
+        id
+        name
+        url
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     bookingType
     isPublished
     isReady
     createdAt
     updatedAt
+    version
   }
 }
 `;
 export const createSpaceData = `mutation CreateSpaceData($input: CreateSpaceDataInput!) {
   createSpaceData(input: $input) {
     id
-    space {
-      id
-      userId
-      spaceType
-      spaceSize
-      spaceCapacity
-      country
-      state
-      city
-      address
-      postCode
-      lat
-      lon
-      title
-      description
-      bookingType
-      isPublished
-      isReady
-      createdAt
-      updatedAt
-    }
     bookingNoticeTime
     minTime
     maxTime
     basePrice
     halfDayDiscount
     fullDayDiscount
+    manualDayDiscount
     createdAt
     updatedAt
+    version
   }
 }
 `;
 export const updateSpaceData = `mutation UpdateSpaceData($input: UpdateSpaceDataInput!) {
   updateSpaceData(input: $input) {
     id
-    space {
-      id
-      userId
-      spaceType
-      spaceSize
-      spaceCapacity
-      country
-      state
-      city
-      address
-      postCode
-      lat
-      lon
-      title
-      description
-      bookingType
-      isPublished
-      isReady
-      createdAt
-      updatedAt
-    }
     bookingNoticeTime
     minTime
     maxTime
     basePrice
     halfDayDiscount
     fullDayDiscount
+    manualDayDiscount
     createdAt
     updatedAt
+    version
   }
 }
 `;
 export const deleteSpaceData = `mutation DeleteSpaceData($input: DeleteSpaceDataInput!) {
   deleteSpaceData(input: $input) {
     id
-    space {
-      id
-      userId
-      spaceType
-      spaceSize
-      spaceCapacity
-      country
-      state
-      city
-      address
-      postCode
-      lat
-      lon
-      title
-      description
-      bookingType
-      isPublished
-      isReady
-      createdAt
-      updatedAt
-    }
     bookingNoticeTime
     minTime
     maxTime
     basePrice
     halfDayDiscount
     fullDayDiscount
+    manualDayDiscount
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -366,12 +342,14 @@ export const createSpacePhoto = `mutation CreateSpacePhoto($input: CreateSpacePh
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     type
     isCover
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -398,12 +376,14 @@ export const updateSpacePhoto = `mutation UpdateSpacePhoto($input: UpdateSpacePh
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     type
     isCover
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -430,12 +410,14 @@ export const deleteSpacePhoto = `mutation DeleteSpacePhoto($input: DeleteSpacePh
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     type
     isCover
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -462,6 +444,7 @@ export const createReservation = `mutation CreateReservation($input: CreateReser
       isReady
       createdAt
       updatedAt
+      version
     }
     blockedDates {
       items {
@@ -469,25 +452,22 @@ export const createReservation = `mutation CreateReservation($input: CreateReser
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
-    transaction {
-      id
-      payerEmail
-      payerId
-      transactionId
-      total
-      transactionFee
-      currency
-      ipn_track_id
-      paymentType
-      createdAt
-      updatedAt
-    }
     guestId
-    checkIn
-    checkOut
+    slot {
+      items {
+        id
+        checkIn
+        checkOut
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
+    }
     guests
     message
     basePrice
@@ -499,6 +479,7 @@ export const createReservation = `mutation CreateReservation($input: CreateReser
     reservationState
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -525,6 +506,7 @@ export const updateReservation = `mutation UpdateReservation($input: UpdateReser
       isReady
       createdAt
       updatedAt
+      version
     }
     blockedDates {
       items {
@@ -532,25 +514,22 @@ export const updateReservation = `mutation UpdateReservation($input: UpdateReser
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
-    transaction {
-      id
-      payerEmail
-      payerId
-      transactionId
-      total
-      transactionFee
-      currency
-      ipn_track_id
-      paymentType
-      createdAt
-      updatedAt
-    }
     guestId
-    checkIn
-    checkOut
+    slot {
+      items {
+        id
+        checkIn
+        checkOut
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
+    }
     guests
     message
     basePrice
@@ -562,6 +541,7 @@ export const updateReservation = `mutation UpdateReservation($input: UpdateReser
     reservationState
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -588,6 +568,7 @@ export const deleteReservation = `mutation DeleteReservation($input: DeleteReser
       isReady
       createdAt
       updatedAt
+      version
     }
     blockedDates {
       items {
@@ -595,25 +576,22 @@ export const deleteReservation = `mutation DeleteReservation($input: DeleteReser
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
-    transaction {
-      id
-      payerEmail
-      payerId
-      transactionId
-      total
-      transactionFee
-      currency
-      ipn_track_id
-      paymentType
-      createdAt
-      updatedAt
-    }
     guestId
-    checkIn
-    checkOut
+    slot {
+      items {
+        id
+        checkIn
+        checkOut
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
+    }
     guests
     message
     basePrice
@@ -625,6 +603,40 @@ export const deleteReservation = `mutation DeleteReservation($input: DeleteReser
     reservationState
     createdAt
     updatedAt
+    version
+  }
+}
+`;
+export const createReservationSlot = `mutation CreateReservationSlot($input: CreateReservationSlotInput!) {
+  createReservationSlot(input: $input) {
+    id
+    checkIn
+    checkOut
+    createdAt
+    updatedAt
+    version
+  }
+}
+`;
+export const updateReservationSlot = `mutation UpdateReservationSlot($input: UpdateReservationSlotInput!) {
+  updateReservationSlot(input: $input) {
+    id
+    checkIn
+    checkOut
+    createdAt
+    updatedAt
+    version
+  }
+}
+`;
+export const deleteReservationSlot = `mutation DeleteReservationSlot($input: DeleteReservationSlotInput!) {
+  deleteReservationSlot(input: $input) {
+    id
+    checkIn
+    checkOut
+    createdAt
+    updatedAt
+    version
   }
 }
 `;
@@ -651,12 +663,11 @@ export const createSpaceBlockedDate = `mutation CreateSpaceBlockedDate($input: C
       isReady
       createdAt
       updatedAt
+      version
     }
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -668,6 +679,7 @@ export const createSpaceBlockedDate = `mutation CreateSpaceBlockedDate($input: C
       reservationState
       createdAt
       updatedAt
+      version
     }
     calendar {
       id
@@ -675,10 +687,12 @@ export const createSpaceBlockedDate = `mutation CreateSpaceBlockedDate($input: C
       url
       createdAt
       updatedAt
+      version
     }
     blockedDates
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -705,12 +719,11 @@ export const updateSpaceBlockedDate = `mutation UpdateSpaceBlockedDate($input: U
       isReady
       createdAt
       updatedAt
+      version
     }
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -722,6 +735,7 @@ export const updateSpaceBlockedDate = `mutation UpdateSpaceBlockedDate($input: U
       reservationState
       createdAt
       updatedAt
+      version
     }
     calendar {
       id
@@ -729,10 +743,12 @@ export const updateSpaceBlockedDate = `mutation UpdateSpaceBlockedDate($input: U
       url
       createdAt
       updatedAt
+      version
     }
     blockedDates
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -759,12 +775,11 @@ export const deleteSpaceBlockedDate = `mutation DeleteSpaceBlockedDate($input: D
       isReady
       createdAt
       updatedAt
+      version
     }
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -776,6 +791,7 @@ export const deleteSpaceBlockedDate = `mutation DeleteSpaceBlockedDate($input: D
       reservationState
       createdAt
       updatedAt
+      version
     }
     calendar {
       id
@@ -783,10 +799,12 @@ export const deleteSpaceBlockedDate = `mutation DeleteSpaceBlockedDate($input: D
       url
       createdAt
       updatedAt
+      version
     }
     blockedDates
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -813,11 +831,13 @@ export const createSpaceCalendar = `mutation CreateSpaceCalendar($input: CreateS
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     url
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -844,11 +864,13 @@ export const updateSpaceCalendar = `mutation UpdateSpaceCalendar($input: UpdateS
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     url
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -875,11 +897,13 @@ export const deleteSpaceCalendar = `mutation DeleteSpaceCalendar($input: DeleteS
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     url
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -889,8 +913,6 @@ export const createTransaction = `mutation CreateTransaction($input: CreateTrans
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -902,6 +924,7 @@ export const createTransaction = `mutation CreateTransaction($input: CreateTrans
       reservationState
       createdAt
       updatedAt
+      version
     }
     payerEmail
     payerId
@@ -913,6 +936,7 @@ export const createTransaction = `mutation CreateTransaction($input: CreateTrans
     paymentType
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -922,8 +946,6 @@ export const updateTransaction = `mutation UpdateTransaction($input: UpdateTrans
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -935,6 +957,7 @@ export const updateTransaction = `mutation UpdateTransaction($input: UpdateTrans
       reservationState
       createdAt
       updatedAt
+      version
     }
     payerEmail
     payerId
@@ -946,6 +969,7 @@ export const updateTransaction = `mutation UpdateTransaction($input: UpdateTrans
     paymentType
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -955,8 +979,6 @@ export const deleteTransaction = `mutation DeleteTransaction($input: DeleteTrans
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -968,6 +990,7 @@ export const deleteTransaction = `mutation DeleteTransaction($input: DeleteTrans
       reservationState
       createdAt
       updatedAt
+      version
     }
     payerEmail
     payerId
@@ -979,6 +1002,7 @@ export const deleteTransaction = `mutation DeleteTransaction($input: DeleteTrans
     paymentType
     createdAt
     updatedAt
+    version
   }
 }
 `;

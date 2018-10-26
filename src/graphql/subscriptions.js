@@ -25,8 +25,10 @@ export const onCreateSpace = `subscription OnCreateSpace {
       basePrice
       halfDayDiscount
       fullDayDiscount
+      manualDayDiscount
       createdAt
       updatedAt
+      version
     }
     photos {
       items {
@@ -36,25 +38,28 @@ export const onCreateSpace = `subscription OnCreateSpace {
         isCover
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     reservation {
-      id
-      guestId
-      checkIn
-      checkOut
-      guests
-      message
-      basePrice
-      discount
-      discountType
-      total
-      confirmationCode
-      paymentState
-      reservationState
-      createdAt
-      updatedAt
+      items {
+        id
+        guestId
+        guests
+        message
+        basePrice
+        discount
+        discountType
+        total
+        confirmationCode
+        paymentState
+        reservationState
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     blockedDates {
       items {
@@ -62,21 +67,27 @@ export const onCreateSpace = `subscription OnCreateSpace {
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     calendar {
-      id
-      name
-      url
-      createdAt
-      updatedAt
+      items {
+        id
+        name
+        url
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     bookingType
     isPublished
     isReady
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -104,8 +115,10 @@ export const onUpdateSpace = `subscription OnUpdateSpace {
       basePrice
       halfDayDiscount
       fullDayDiscount
+      manualDayDiscount
       createdAt
       updatedAt
+      version
     }
     photos {
       items {
@@ -115,25 +128,28 @@ export const onUpdateSpace = `subscription OnUpdateSpace {
         isCover
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     reservation {
-      id
-      guestId
-      checkIn
-      checkOut
-      guests
-      message
-      basePrice
-      discount
-      discountType
-      total
-      confirmationCode
-      paymentState
-      reservationState
-      createdAt
-      updatedAt
+      items {
+        id
+        guestId
+        guests
+        message
+        basePrice
+        discount
+        discountType
+        total
+        confirmationCode
+        paymentState
+        reservationState
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     blockedDates {
       items {
@@ -141,21 +157,27 @@ export const onUpdateSpace = `subscription OnUpdateSpace {
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     calendar {
-      id
-      name
-      url
-      createdAt
-      updatedAt
+      items {
+        id
+        name
+        url
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     bookingType
     isPublished
     isReady
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -183,8 +205,10 @@ export const onDeleteSpace = `subscription OnDeleteSpace {
       basePrice
       halfDayDiscount
       fullDayDiscount
+      manualDayDiscount
       createdAt
       updatedAt
+      version
     }
     photos {
       items {
@@ -194,25 +218,28 @@ export const onDeleteSpace = `subscription OnDeleteSpace {
         isCover
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     reservation {
-      id
-      guestId
-      checkIn
-      checkOut
-      guests
-      message
-      basePrice
-      discount
-      discountType
-      total
-      confirmationCode
-      paymentState
-      reservationState
-      createdAt
-      updatedAt
+      items {
+        id
+        guestId
+        guests
+        message
+        basePrice
+        discount
+        discountType
+        total
+        confirmationCode
+        paymentState
+        reservationState
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     blockedDates {
       items {
@@ -220,126 +247,75 @@ export const onDeleteSpace = `subscription OnDeleteSpace {
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     calendar {
-      id
-      name
-      url
-      createdAt
-      updatedAt
+      items {
+        id
+        name
+        url
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     bookingType
     isPublished
     isReady
     createdAt
     updatedAt
+    version
   }
 }
 `;
 export const onCreateSpaceData = `subscription OnCreateSpaceData {
   onCreateSpaceData {
     id
-    space {
-      id
-      userId
-      spaceType
-      spaceSize
-      spaceCapacity
-      country
-      state
-      city
-      address
-      postCode
-      lat
-      lon
-      title
-      description
-      bookingType
-      isPublished
-      isReady
-      createdAt
-      updatedAt
-    }
     bookingNoticeTime
     minTime
     maxTime
     basePrice
     halfDayDiscount
     fullDayDiscount
+    manualDayDiscount
     createdAt
     updatedAt
+    version
   }
 }
 `;
 export const onUpdateSpaceData = `subscription OnUpdateSpaceData {
   onUpdateSpaceData {
     id
-    space {
-      id
-      userId
-      spaceType
-      spaceSize
-      spaceCapacity
-      country
-      state
-      city
-      address
-      postCode
-      lat
-      lon
-      title
-      description
-      bookingType
-      isPublished
-      isReady
-      createdAt
-      updatedAt
-    }
     bookingNoticeTime
     minTime
     maxTime
     basePrice
     halfDayDiscount
     fullDayDiscount
+    manualDayDiscount
     createdAt
     updatedAt
+    version
   }
 }
 `;
 export const onDeleteSpaceData = `subscription OnDeleteSpaceData {
   onDeleteSpaceData {
     id
-    space {
-      id
-      userId
-      spaceType
-      spaceSize
-      spaceCapacity
-      country
-      state
-      city
-      address
-      postCode
-      lat
-      lon
-      title
-      description
-      bookingType
-      isPublished
-      isReady
-      createdAt
-      updatedAt
-    }
     bookingNoticeTime
     minTime
     maxTime
     basePrice
     halfDayDiscount
     fullDayDiscount
+    manualDayDiscount
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -366,12 +342,14 @@ export const onCreateSpacePhoto = `subscription OnCreateSpacePhoto {
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     type
     isCover
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -398,12 +376,14 @@ export const onUpdateSpacePhoto = `subscription OnUpdateSpacePhoto {
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     type
     isCover
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -430,12 +410,14 @@ export const onDeleteSpacePhoto = `subscription OnDeleteSpacePhoto {
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     type
     isCover
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -462,6 +444,7 @@ export const onCreateReservation = `subscription OnCreateReservation {
       isReady
       createdAt
       updatedAt
+      version
     }
     blockedDates {
       items {
@@ -469,25 +452,22 @@ export const onCreateReservation = `subscription OnCreateReservation {
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
-    transaction {
-      id
-      payerEmail
-      payerId
-      transactionId
-      total
-      transactionFee
-      currency
-      ipn_track_id
-      paymentType
-      createdAt
-      updatedAt
-    }
     guestId
-    checkIn
-    checkOut
+    slot {
+      items {
+        id
+        checkIn
+        checkOut
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
+    }
     guests
     message
     basePrice
@@ -499,6 +479,7 @@ export const onCreateReservation = `subscription OnCreateReservation {
     reservationState
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -525,6 +506,7 @@ export const onUpdateReservation = `subscription OnUpdateReservation {
       isReady
       createdAt
       updatedAt
+      version
     }
     blockedDates {
       items {
@@ -532,25 +514,22 @@ export const onUpdateReservation = `subscription OnUpdateReservation {
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
-    transaction {
-      id
-      payerEmail
-      payerId
-      transactionId
-      total
-      transactionFee
-      currency
-      ipn_track_id
-      paymentType
-      createdAt
-      updatedAt
-    }
     guestId
-    checkIn
-    checkOut
+    slot {
+      items {
+        id
+        checkIn
+        checkOut
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
+    }
     guests
     message
     basePrice
@@ -562,6 +541,7 @@ export const onUpdateReservation = `subscription OnUpdateReservation {
     reservationState
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -588,6 +568,7 @@ export const onDeleteReservation = `subscription OnDeleteReservation {
       isReady
       createdAt
       updatedAt
+      version
     }
     blockedDates {
       items {
@@ -595,25 +576,22 @@ export const onDeleteReservation = `subscription OnDeleteReservation {
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
-    transaction {
-      id
-      payerEmail
-      payerId
-      transactionId
-      total
-      transactionFee
-      currency
-      ipn_track_id
-      paymentType
-      createdAt
-      updatedAt
-    }
     guestId
-    checkIn
-    checkOut
+    slot {
+      items {
+        id
+        checkIn
+        checkOut
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
+    }
     guests
     message
     basePrice
@@ -625,6 +603,40 @@ export const onDeleteReservation = `subscription OnDeleteReservation {
     reservationState
     createdAt
     updatedAt
+    version
+  }
+}
+`;
+export const onCreateReservationSlot = `subscription OnCreateReservationSlot {
+  onCreateReservationSlot {
+    id
+    checkIn
+    checkOut
+    createdAt
+    updatedAt
+    version
+  }
+}
+`;
+export const onUpdateReservationSlot = `subscription OnUpdateReservationSlot {
+  onUpdateReservationSlot {
+    id
+    checkIn
+    checkOut
+    createdAt
+    updatedAt
+    version
+  }
+}
+`;
+export const onDeleteReservationSlot = `subscription OnDeleteReservationSlot {
+  onDeleteReservationSlot {
+    id
+    checkIn
+    checkOut
+    createdAt
+    updatedAt
+    version
   }
 }
 `;
@@ -651,12 +663,11 @@ export const onCreateSpaceBlockedDate = `subscription OnCreateSpaceBlockedDate {
       isReady
       createdAt
       updatedAt
+      version
     }
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -668,6 +679,7 @@ export const onCreateSpaceBlockedDate = `subscription OnCreateSpaceBlockedDate {
       reservationState
       createdAt
       updatedAt
+      version
     }
     calendar {
       id
@@ -675,10 +687,12 @@ export const onCreateSpaceBlockedDate = `subscription OnCreateSpaceBlockedDate {
       url
       createdAt
       updatedAt
+      version
     }
     blockedDates
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -705,12 +719,11 @@ export const onUpdateSpaceBlockedDate = `subscription OnUpdateSpaceBlockedDate {
       isReady
       createdAt
       updatedAt
+      version
     }
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -722,6 +735,7 @@ export const onUpdateSpaceBlockedDate = `subscription OnUpdateSpaceBlockedDate {
       reservationState
       createdAt
       updatedAt
+      version
     }
     calendar {
       id
@@ -729,10 +743,12 @@ export const onUpdateSpaceBlockedDate = `subscription OnUpdateSpaceBlockedDate {
       url
       createdAt
       updatedAt
+      version
     }
     blockedDates
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -759,12 +775,11 @@ export const onDeleteSpaceBlockedDate = `subscription OnDeleteSpaceBlockedDate {
       isReady
       createdAt
       updatedAt
+      version
     }
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -776,6 +791,7 @@ export const onDeleteSpaceBlockedDate = `subscription OnDeleteSpaceBlockedDate {
       reservationState
       createdAt
       updatedAt
+      version
     }
     calendar {
       id
@@ -783,10 +799,12 @@ export const onDeleteSpaceBlockedDate = `subscription OnDeleteSpaceBlockedDate {
       url
       createdAt
       updatedAt
+      version
     }
     blockedDates
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -813,11 +831,13 @@ export const onCreateSpaceCalendar = `subscription OnCreateSpaceCalendar {
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     url
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -844,11 +864,13 @@ export const onUpdateSpaceCalendar = `subscription OnUpdateSpaceCalendar {
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     url
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -875,11 +897,13 @@ export const onDeleteSpaceCalendar = `subscription OnDeleteSpaceCalendar {
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     url
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -889,8 +913,6 @@ export const onCreateTransaction = `subscription OnCreateTransaction {
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -902,6 +924,7 @@ export const onCreateTransaction = `subscription OnCreateTransaction {
       reservationState
       createdAt
       updatedAt
+      version
     }
     payerEmail
     payerId
@@ -913,6 +936,7 @@ export const onCreateTransaction = `subscription OnCreateTransaction {
     paymentType
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -922,8 +946,6 @@ export const onUpdateTransaction = `subscription OnUpdateTransaction {
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -935,6 +957,7 @@ export const onUpdateTransaction = `subscription OnUpdateTransaction {
       reservationState
       createdAt
       updatedAt
+      version
     }
     payerEmail
     payerId
@@ -946,6 +969,7 @@ export const onUpdateTransaction = `subscription OnUpdateTransaction {
     paymentType
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -955,8 +979,6 @@ export const onDeleteTransaction = `subscription OnDeleteTransaction {
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -968,6 +990,7 @@ export const onDeleteTransaction = `subscription OnDeleteTransaction {
       reservationState
       createdAt
       updatedAt
+      version
     }
     payerEmail
     payerId
@@ -979,6 +1002,7 @@ export const onDeleteTransaction = `subscription OnDeleteTransaction {
     paymentType
     createdAt
     updatedAt
+    version
   }
 }
 `;

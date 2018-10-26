@@ -25,8 +25,10 @@ export const getSpace = `query GetSpace($id: ID!) {
       basePrice
       halfDayDiscount
       fullDayDiscount
+      manualDayDiscount
       createdAt
       updatedAt
+      version
     }
     photos {
       items {
@@ -36,25 +38,28 @@ export const getSpace = `query GetSpace($id: ID!) {
         isCover
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     reservation {
-      id
-      guestId
-      checkIn
-      checkOut
-      guests
-      message
-      basePrice
-      discount
-      discountType
-      total
-      confirmationCode
-      paymentState
-      reservationState
-      createdAt
-      updatedAt
+      items {
+        id
+        guestId
+        guests
+        message
+        basePrice
+        discount
+        discountType
+        total
+        confirmationCode
+        paymentState
+        reservationState
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     blockedDates {
       items {
@@ -62,21 +67,27 @@ export const getSpace = `query GetSpace($id: ID!) {
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
     calendar {
-      id
-      name
-      url
-      createdAt
-      updatedAt
+      items {
+        id
+        name
+        url
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
     }
     bookingType
     isPublished
     isReady
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -109,8 +120,10 @@ export const listSpaces = `query ListSpaces(
         basePrice
         halfDayDiscount
         fullDayDiscount
+        manualDayDiscount
         createdAt
         updatedAt
+        version
       }
       photos {
         items {
@@ -120,25 +133,28 @@ export const listSpaces = `query ListSpaces(
           isCover
           createdAt
           updatedAt
+          version
         }
         nextToken
       }
       reservation {
-        id
-        guestId
-        checkIn
-        checkOut
-        guests
-        message
-        basePrice
-        discount
-        discountType
-        total
-        confirmationCode
-        paymentState
-        reservationState
-        createdAt
-        updatedAt
+        items {
+          id
+          guestId
+          guests
+          message
+          basePrice
+          discount
+          discountType
+          total
+          confirmationCode
+          paymentState
+          reservationState
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
       }
       blockedDates {
         items {
@@ -146,21 +162,27 @@ export const listSpaces = `query ListSpaces(
           blockedDates
           createdAt
           updatedAt
+          version
         }
         nextToken
       }
       calendar {
-        id
-        name
-        url
-        createdAt
-        updatedAt
+        items {
+          id
+          name
+          url
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
       }
       bookingType
       isPublished
       isReady
       createdAt
       updatedAt
+      version
     }
     nextToken
   }
@@ -169,35 +191,16 @@ export const listSpaces = `query ListSpaces(
 export const getSpaceData = `query GetSpaceData($id: ID!) {
   getSpaceData(id: $id) {
     id
-    space {
-      id
-      userId
-      spaceType
-      spaceSize
-      spaceCapacity
-      country
-      state
-      city
-      address
-      postCode
-      lat
-      lon
-      title
-      description
-      bookingType
-      isPublished
-      isReady
-      createdAt
-      updatedAt
-    }
     bookingNoticeTime
     minTime
     maxTime
     basePrice
     halfDayDiscount
     fullDayDiscount
+    manualDayDiscount
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -209,35 +212,16 @@ export const listSpaceDatas = `query ListSpaceDatas(
   listSpaceDatas(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      space {
-        id
-        userId
-        spaceType
-        spaceSize
-        spaceCapacity
-        country
-        state
-        city
-        address
-        postCode
-        lat
-        lon
-        title
-        description
-        bookingType
-        isPublished
-        isReady
-        createdAt
-        updatedAt
-      }
       bookingNoticeTime
       minTime
       maxTime
       basePrice
       halfDayDiscount
       fullDayDiscount
+      manualDayDiscount
       createdAt
       updatedAt
+      version
     }
     nextToken
   }
@@ -266,12 +250,14 @@ export const getSpacePhoto = `query GetSpacePhoto($id: ID!) {
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     type
     isCover
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -303,12 +289,14 @@ export const listSpacePhotos = `query ListSpacePhotos(
         isReady
         createdAt
         updatedAt
+        version
       }
       name
       type
       isCover
       createdAt
       updatedAt
+      version
     }
     nextToken
   }
@@ -337,6 +325,7 @@ export const getReservation = `query GetReservation($id: ID!) {
       isReady
       createdAt
       updatedAt
+      version
     }
     blockedDates {
       items {
@@ -344,25 +333,22 @@ export const getReservation = `query GetReservation($id: ID!) {
         blockedDates
         createdAt
         updatedAt
+        version
       }
       nextToken
     }
-    transaction {
-      id
-      payerEmail
-      payerId
-      transactionId
-      total
-      transactionFee
-      currency
-      ipn_track_id
-      paymentType
-      createdAt
-      updatedAt
-    }
     guestId
-    checkIn
-    checkOut
+    slot {
+      items {
+        id
+        checkIn
+        checkOut
+        createdAt
+        updatedAt
+        version
+      }
+      nextToken
+    }
     guests
     message
     basePrice
@@ -374,6 +360,7 @@ export const getReservation = `query GetReservation($id: ID!) {
     reservationState
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -405,6 +392,7 @@ export const listReservations = `query ListReservations(
         isReady
         createdAt
         updatedAt
+        version
       }
       blockedDates {
         items {
@@ -412,25 +400,22 @@ export const listReservations = `query ListReservations(
           blockedDates
           createdAt
           updatedAt
+          version
         }
         nextToken
       }
-      transaction {
-        id
-        payerEmail
-        payerId
-        transactionId
-        total
-        transactionFee
-        currency
-        ipn_track_id
-        paymentType
-        createdAt
-        updatedAt
-      }
       guestId
-      checkIn
-      checkOut
+      slot {
+        items {
+          id
+          checkIn
+          checkOut
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
       guests
       message
       basePrice
@@ -442,6 +427,36 @@ export const listReservations = `query ListReservations(
       reservationState
       createdAt
       updatedAt
+      version
+    }
+    nextToken
+  }
+}
+`;
+export const getReservationSlot = `query GetReservationSlot($id: ID!) {
+  getReservationSlot(id: $id) {
+    id
+    checkIn
+    checkOut
+    createdAt
+    updatedAt
+    version
+  }
+}
+`;
+export const listReservationSlots = `query ListReservationSlots(
+  $filter: ModelReservationSlotFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listReservationSlots(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      checkIn
+      checkOut
+      createdAt
+      updatedAt
+      version
     }
     nextToken
   }
@@ -470,12 +485,11 @@ export const getSpaceBlockedDate = `query GetSpaceBlockedDate($id: ID!) {
       isReady
       createdAt
       updatedAt
+      version
     }
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -487,6 +501,7 @@ export const getSpaceBlockedDate = `query GetSpaceBlockedDate($id: ID!) {
       reservationState
       createdAt
       updatedAt
+      version
     }
     calendar {
       id
@@ -494,10 +509,12 @@ export const getSpaceBlockedDate = `query GetSpaceBlockedDate($id: ID!) {
       url
       createdAt
       updatedAt
+      version
     }
     blockedDates
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -529,12 +546,11 @@ export const listSpaceBlockedDates = `query ListSpaceBlockedDates(
         isReady
         createdAt
         updatedAt
+        version
       }
       reservation {
         id
         guestId
-        checkIn
-        checkOut
         guests
         message
         basePrice
@@ -546,6 +562,7 @@ export const listSpaceBlockedDates = `query ListSpaceBlockedDates(
         reservationState
         createdAt
         updatedAt
+        version
       }
       calendar {
         id
@@ -553,10 +570,12 @@ export const listSpaceBlockedDates = `query ListSpaceBlockedDates(
         url
         createdAt
         updatedAt
+        version
       }
       blockedDates
       createdAt
       updatedAt
+      version
     }
     nextToken
   }
@@ -585,11 +604,13 @@ export const getSpaceCalendar = `query GetSpaceCalendar($id: ID!) {
       isReady
       createdAt
       updatedAt
+      version
     }
     name
     url
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -621,11 +642,13 @@ export const listSpaceCalendars = `query ListSpaceCalendars(
         isReady
         createdAt
         updatedAt
+        version
       }
       name
       url
       createdAt
       updatedAt
+      version
     }
     nextToken
   }
@@ -637,8 +660,6 @@ export const getTransaction = `query GetTransaction($id: ID!) {
     reservation {
       id
       guestId
-      checkIn
-      checkOut
       guests
       message
       basePrice
@@ -650,6 +671,7 @@ export const getTransaction = `query GetTransaction($id: ID!) {
       reservationState
       createdAt
       updatedAt
+      version
     }
     payerEmail
     payerId
@@ -661,6 +683,7 @@ export const getTransaction = `query GetTransaction($id: ID!) {
     paymentType
     createdAt
     updatedAt
+    version
   }
 }
 `;
@@ -675,8 +698,6 @@ export const listTransactions = `query ListTransactions(
       reservation {
         id
         guestId
-        checkIn
-        checkOut
         guests
         message
         basePrice
@@ -688,6 +709,7 @@ export const listTransactions = `query ListTransactions(
         reservationState
         createdAt
         updatedAt
+        version
       }
       payerEmail
       payerId
@@ -699,6 +721,110 @@ export const listTransactions = `query ListTransactions(
       paymentType
       createdAt
       updatedAt
+      version
+    }
+    nextToken
+  }
+}
+`;
+export const searchSpaces = `query SearchSpaces(
+  $filter: SearchableSpaceFilterInput
+  $sort: SearchableSpaceSortInput
+  $limit: Int
+  $nextToken: Int
+) {
+  searchSpaces(
+    filter: $filter
+    sort: $sort
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      userId
+      spaceType
+      spaceSize
+      spaceCapacity
+      country
+      state
+      city
+      address
+      postCode
+      lat
+      lon
+      title
+      description
+      spaceData {
+        id
+        bookingNoticeTime
+        minTime
+        maxTime
+        basePrice
+        halfDayDiscount
+        fullDayDiscount
+        manualDayDiscount
+        createdAt
+        updatedAt
+        version
+      }
+      photos {
+        items {
+          id
+          name
+          type
+          isCover
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
+      reservation {
+        items {
+          id
+          guestId
+          guests
+          message
+          basePrice
+          discount
+          discountType
+          total
+          confirmationCode
+          paymentState
+          reservationState
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
+      blockedDates {
+        items {
+          id
+          blockedDates
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
+      calendar {
+        items {
+          id
+          name
+          url
+          createdAt
+          updatedAt
+          version
+        }
+        nextToken
+      }
+      bookingType
+      isPublished
+      isReady
+      createdAt
+      updatedAt
+      version
     }
     nextToken
   }
