@@ -41,7 +41,7 @@ class Home extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <h1>React.js News</h1>
+          <h1>Booking System</h1>
           <Button onClick={this.handleAnalytics}> Test Analytics </Button>
           <Connect query={graphqlOperation(queries.listSpaces)}>
             {
