@@ -13,7 +13,6 @@ type Space {
   lon: String
   title: String
   description: String
-  spaceData: SpaceData
   photos(filter: ModelSpacePhotoFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpacePhotoConnection
   reservation(filter: ModelReservationFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelReservationConnection
   blockedDates(filter: ModelSpaceBlockedDateFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelSpaceBlockedDateConnection
@@ -28,6 +27,7 @@ type Space {
 
 type SpaceData {
   id: ID!
+  space: Space
   bookingNoticeTime: String
   minTime: Int
   maxTime: Int
@@ -246,7 +246,6 @@ input CreateSpaceInput {
   isReady: Boolean
   createdAt: String
   updatedAt: String
-  spaceSpaceDataId: ID
 }
 
 input UpdateSpaceInput {
@@ -269,7 +268,6 @@ input UpdateSpaceInput {
   isReady: Boolean
   createdAt: String
   updatedAt: String
-  spaceSpaceDataId: ID
   expectedVersion: Int!
 }
 
@@ -363,6 +361,7 @@ input CreateSpaceDataInput {
   manualDayDiscount: String
   createdAt: String
   updatedAt: String
+  spaceDataSpaceId: ID
 }
 
 input UpdateSpaceDataInput {
@@ -376,6 +375,7 @@ input UpdateSpaceDataInput {
   manualDayDiscount: String
   createdAt: String
   updatedAt: String
+  spaceDataSpaceId: ID
   expectedVersion: Int!
 }
 

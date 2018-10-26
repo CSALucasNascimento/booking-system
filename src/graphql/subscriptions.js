@@ -17,19 +17,6 @@ export const onCreateSpace = `subscription OnCreateSpace {
     lon
     title
     description
-    spaceData {
-      id
-      bookingNoticeTime
-      minTime
-      maxTime
-      basePrice
-      halfDayDiscount
-      fullDayDiscount
-      manualDayDiscount
-      createdAt
-      updatedAt
-      version
-    }
     photos {
       items {
         id
@@ -107,19 +94,6 @@ export const onUpdateSpace = `subscription OnUpdateSpace {
     lon
     title
     description
-    spaceData {
-      id
-      bookingNoticeTime
-      minTime
-      maxTime
-      basePrice
-      halfDayDiscount
-      fullDayDiscount
-      manualDayDiscount
-      createdAt
-      updatedAt
-      version
-    }
     photos {
       items {
         id
@@ -197,19 +171,6 @@ export const onDeleteSpace = `subscription OnDeleteSpace {
     lon
     title
     description
-    spaceData {
-      id
-      bookingNoticeTime
-      minTime
-      maxTime
-      basePrice
-      halfDayDiscount
-      fullDayDiscount
-      manualDayDiscount
-      createdAt
-      updatedAt
-      version
-    }
     photos {
       items {
         id
@@ -274,6 +235,28 @@ export const onDeleteSpace = `subscription OnDeleteSpace {
 export const onCreateSpaceData = `subscription OnCreateSpaceData {
   onCreateSpaceData {
     id
+    space {
+      id
+      userId
+      spaceType
+      spaceSize
+      spaceCapacity
+      country
+      state
+      city
+      address
+      postCode
+      lat
+      lon
+      title
+      description
+      bookingType
+      isPublished
+      isReady
+      createdAt
+      updatedAt
+      version
+    }
     bookingNoticeTime
     minTime
     maxTime
@@ -290,6 +273,28 @@ export const onCreateSpaceData = `subscription OnCreateSpaceData {
 export const onUpdateSpaceData = `subscription OnUpdateSpaceData {
   onUpdateSpaceData {
     id
+    space {
+      id
+      userId
+      spaceType
+      spaceSize
+      spaceCapacity
+      country
+      state
+      city
+      address
+      postCode
+      lat
+      lon
+      title
+      description
+      bookingType
+      isPublished
+      isReady
+      createdAt
+      updatedAt
+      version
+    }
     bookingNoticeTime
     minTime
     maxTime
@@ -306,6 +311,28 @@ export const onUpdateSpaceData = `subscription OnUpdateSpaceData {
 export const onDeleteSpaceData = `subscription OnDeleteSpaceData {
   onDeleteSpaceData {
     id
+    space {
+      id
+      userId
+      spaceType
+      spaceSize
+      spaceCapacity
+      country
+      state
+      city
+      address
+      postCode
+      lat
+      lon
+      title
+      description
+      bookingType
+      isPublished
+      isReady
+      createdAt
+      updatedAt
+      version
+    }
     bookingNoticeTime
     minTime
     maxTime

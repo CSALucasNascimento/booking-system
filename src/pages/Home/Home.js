@@ -136,7 +136,7 @@ class Home extends React.Component {
                 if (error) return (<h3>Error</h3>);
                 if (loading || !listSpaces ) return (<h3>Loading...</h3>);
                 return (
-                  <div >
+                  <div>
                     <ul>
                       {[].concat(listSpaces.items).sort((a, b) => b.id - a.id).map(this.renderSpaces)}
                     </ul>

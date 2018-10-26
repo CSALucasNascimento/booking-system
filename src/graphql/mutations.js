@@ -17,19 +17,6 @@ export const createSpace = `mutation CreateSpace($input: CreateSpaceInput!) {
     lon
     title
     description
-    spaceData {
-      id
-      bookingNoticeTime
-      minTime
-      maxTime
-      basePrice
-      halfDayDiscount
-      fullDayDiscount
-      manualDayDiscount
-      createdAt
-      updatedAt
-      version
-    }
     photos {
       items {
         id
@@ -107,19 +94,6 @@ export const updateSpace = `mutation UpdateSpace($input: UpdateSpaceInput!) {
     lon
     title
     description
-    spaceData {
-      id
-      bookingNoticeTime
-      minTime
-      maxTime
-      basePrice
-      halfDayDiscount
-      fullDayDiscount
-      manualDayDiscount
-      createdAt
-      updatedAt
-      version
-    }
     photos {
       items {
         id
@@ -197,19 +171,6 @@ export const deleteSpace = `mutation DeleteSpace($input: DeleteSpaceInput!) {
     lon
     title
     description
-    spaceData {
-      id
-      bookingNoticeTime
-      minTime
-      maxTime
-      basePrice
-      halfDayDiscount
-      fullDayDiscount
-      manualDayDiscount
-      createdAt
-      updatedAt
-      version
-    }
     photos {
       items {
         id
@@ -274,6 +235,28 @@ export const deleteSpace = `mutation DeleteSpace($input: DeleteSpaceInput!) {
 export const createSpaceData = `mutation CreateSpaceData($input: CreateSpaceDataInput!) {
   createSpaceData(input: $input) {
     id
+    space {
+      id
+      userId
+      spaceType
+      spaceSize
+      spaceCapacity
+      country
+      state
+      city
+      address
+      postCode
+      lat
+      lon
+      title
+      description
+      bookingType
+      isPublished
+      isReady
+      createdAt
+      updatedAt
+      version
+    }
     bookingNoticeTime
     minTime
     maxTime
@@ -290,6 +273,28 @@ export const createSpaceData = `mutation CreateSpaceData($input: CreateSpaceData
 export const updateSpaceData = `mutation UpdateSpaceData($input: UpdateSpaceDataInput!) {
   updateSpaceData(input: $input) {
     id
+    space {
+      id
+      userId
+      spaceType
+      spaceSize
+      spaceCapacity
+      country
+      state
+      city
+      address
+      postCode
+      lat
+      lon
+      title
+      description
+      bookingType
+      isPublished
+      isReady
+      createdAt
+      updatedAt
+      version
+    }
     bookingNoticeTime
     minTime
     maxTime
@@ -306,6 +311,28 @@ export const updateSpaceData = `mutation UpdateSpaceData($input: UpdateSpaceData
 export const deleteSpaceData = `mutation DeleteSpaceData($input: DeleteSpaceDataInput!) {
   deleteSpaceData(input: $input) {
     id
+    space {
+      id
+      userId
+      spaceType
+      spaceSize
+      spaceCapacity
+      country
+      state
+      city
+      address
+      postCode
+      lat
+      lon
+      title
+      description
+      bookingType
+      isPublished
+      isReady
+      createdAt
+      updatedAt
+      version
+    }
     bookingNoticeTime
     minTime
     maxTime

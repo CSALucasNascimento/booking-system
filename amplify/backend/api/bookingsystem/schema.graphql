@@ -13,7 +13,6 @@ type Space @model @versioned @searchable{
   lon: String
   title: String
   description: String
-  spaceData: SpaceData @connection
   photos: [SpacePhoto] @connection(name: "SpacePhoto")
   reservation: [Reservation] @connection(name: "SpaceReservation")
   blockedDates:[SpaceBlockedDate] @connection(name: "SpaceBlockedDate")
@@ -26,6 +25,7 @@ type Space @model @versioned @searchable{
 }
 type SpaceData @model @versioned{
   id: ID!
+  space: Space @connection
   bookingNoticeTime: String
   minTime: Int
   maxTime: Int

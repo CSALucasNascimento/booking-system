@@ -17,19 +17,6 @@ export const getSpace = `query GetSpace($id: ID!) {
     lon
     title
     description
-    spaceData {
-      id
-      bookingNoticeTime
-      minTime
-      maxTime
-      basePrice
-      halfDayDiscount
-      fullDayDiscount
-      manualDayDiscount
-      createdAt
-      updatedAt
-      version
-    }
     photos {
       items {
         id
@@ -112,19 +99,6 @@ export const listSpaces = `query ListSpaces(
       lon
       title
       description
-      spaceData {
-        id
-        bookingNoticeTime
-        minTime
-        maxTime
-        basePrice
-        halfDayDiscount
-        fullDayDiscount
-        manualDayDiscount
-        createdAt
-        updatedAt
-        version
-      }
       photos {
         items {
           id
@@ -191,6 +165,28 @@ export const listSpaces = `query ListSpaces(
 export const getSpaceData = `query GetSpaceData($id: ID!) {
   getSpaceData(id: $id) {
     id
+    space {
+      id
+      userId
+      spaceType
+      spaceSize
+      spaceCapacity
+      country
+      state
+      city
+      address
+      postCode
+      lat
+      lon
+      title
+      description
+      bookingType
+      isPublished
+      isReady
+      createdAt
+      updatedAt
+      version
+    }
     bookingNoticeTime
     minTime
     maxTime
@@ -212,6 +208,28 @@ export const listSpaceDatas = `query ListSpaceDatas(
   listSpaceDatas(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      space {
+        id
+        userId
+        spaceType
+        spaceSize
+        spaceCapacity
+        country
+        state
+        city
+        address
+        postCode
+        lat
+        lon
+        title
+        description
+        bookingType
+        isPublished
+        isReady
+        createdAt
+        updatedAt
+        version
+      }
       bookingNoticeTime
       minTime
       maxTime
@@ -754,19 +772,6 @@ export const searchSpaces = `query SearchSpaces(
       lon
       title
       description
-      spaceData {
-        id
-        bookingNoticeTime
-        minTime
-        maxTime
-        basePrice
-        halfDayDiscount
-        fullDayDiscount
-        manualDayDiscount
-        createdAt
-        updatedAt
-        version
-      }
       photos {
         items {
           id
