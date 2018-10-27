@@ -10,7 +10,7 @@ import { Logger } from 'aws-amplify';
 import store from '../../store';
 import { Header, Feedback, Footer} from '../';
 
-import { Home, Login, Contact, Admin, NotFound, Privacy } from '../../pages';
+import { SpaceList, SpaceForm, Login, Contact, Admin, NotFound, Privacy } from '../../pages';
 
 const logger = new Logger('Main');
 
@@ -44,7 +44,7 @@ class Main extends React.Component {
         <Container>
           <Header/>
             <Switch>
-                <Route exact path="/" render={(props) => <Home user={user} />} />
+                <Route exact path="/" render={(props) => <SpaceList />} />
                 <Route exact path="/login" render={(props) => <Login user={user} />} />
                 <Route exact path="/admin" render={(props) => <Admin />} />
                 <Route exact path="/privacy" render={(props) => <Privacy />} />

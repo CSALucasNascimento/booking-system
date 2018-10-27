@@ -25,7 +25,6 @@ export const getSpace = `query GetSpace($id: ID!) {
         isCover
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -44,7 +43,6 @@ export const getSpace = `query GetSpace($id: ID!) {
         reservationState
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -54,7 +52,6 @@ export const getSpace = `query GetSpace($id: ID!) {
         blockedDates
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -65,7 +62,6 @@ export const getSpace = `query GetSpace($id: ID!) {
         url
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -74,7 +70,6 @@ export const getSpace = `query GetSpace($id: ID!) {
     isReady
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -107,7 +102,6 @@ export const listSpaces = `query ListSpaces(
           isCover
           createdAt
           updatedAt
-          version
         }
         nextToken
       }
@@ -126,7 +120,6 @@ export const listSpaces = `query ListSpaces(
           reservationState
           createdAt
           updatedAt
-          version
         }
         nextToken
       }
@@ -136,7 +129,6 @@ export const listSpaces = `query ListSpaces(
           blockedDates
           createdAt
           updatedAt
-          version
         }
         nextToken
       }
@@ -147,7 +139,6 @@ export const listSpaces = `query ListSpaces(
           url
           createdAt
           updatedAt
-          version
         }
         nextToken
       }
@@ -156,7 +147,6 @@ export const listSpaces = `query ListSpaces(
       isReady
       createdAt
       updatedAt
-      version
     }
     nextToken
   }
@@ -185,7 +175,6 @@ export const getSpaceData = `query GetSpaceData($id: ID!) {
       isReady
       createdAt
       updatedAt
-      version
     }
     bookingNoticeTime
     minTime
@@ -196,7 +185,6 @@ export const getSpaceData = `query GetSpaceData($id: ID!) {
     manualDayDiscount
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -228,7 +216,6 @@ export const listSpaceDatas = `query ListSpaceDatas(
         isReady
         createdAt
         updatedAt
-        version
       }
       bookingNoticeTime
       minTime
@@ -239,7 +226,6 @@ export const listSpaceDatas = `query ListSpaceDatas(
       manualDayDiscount
       createdAt
       updatedAt
-      version
     }
     nextToken
   }
@@ -268,14 +254,12 @@ export const getSpacePhoto = `query GetSpacePhoto($id: ID!) {
       isReady
       createdAt
       updatedAt
-      version
     }
     name
     type
     isCover
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -307,14 +291,12 @@ export const listSpacePhotos = `query ListSpacePhotos(
         isReady
         createdAt
         updatedAt
-        version
       }
       name
       type
       isCover
       createdAt
       updatedAt
-      version
     }
     nextToken
   }
@@ -343,7 +325,6 @@ export const getReservation = `query GetReservation($id: ID!) {
       isReady
       createdAt
       updatedAt
-      version
     }
     blockedDates {
       items {
@@ -351,7 +332,6 @@ export const getReservation = `query GetReservation($id: ID!) {
         blockedDates
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -363,7 +343,6 @@ export const getReservation = `query GetReservation($id: ID!) {
         checkOut
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -378,7 +357,6 @@ export const getReservation = `query GetReservation($id: ID!) {
     reservationState
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -410,7 +388,6 @@ export const listReservations = `query ListReservations(
         isReady
         createdAt
         updatedAt
-        version
       }
       blockedDates {
         items {
@@ -418,7 +395,6 @@ export const listReservations = `query ListReservations(
           blockedDates
           createdAt
           updatedAt
-          version
         }
         nextToken
       }
@@ -430,7 +406,6 @@ export const listReservations = `query ListReservations(
           checkOut
           createdAt
           updatedAt
-          version
         }
         nextToken
       }
@@ -445,7 +420,6 @@ export const listReservations = `query ListReservations(
       reservationState
       createdAt
       updatedAt
-      version
     }
     nextToken
   }
@@ -458,7 +432,6 @@ export const getReservationSlot = `query GetReservationSlot($id: ID!) {
     checkOut
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -474,7 +447,6 @@ export const listReservationSlots = `query ListReservationSlots(
       checkOut
       createdAt
       updatedAt
-      version
     }
     nextToken
   }
@@ -503,7 +475,6 @@ export const getSpaceBlockedDate = `query GetSpaceBlockedDate($id: ID!) {
       isReady
       createdAt
       updatedAt
-      version
     }
     reservation {
       id
@@ -519,7 +490,6 @@ export const getSpaceBlockedDate = `query GetSpaceBlockedDate($id: ID!) {
       reservationState
       createdAt
       updatedAt
-      version
     }
     calendar {
       id
@@ -527,12 +497,10 @@ export const getSpaceBlockedDate = `query GetSpaceBlockedDate($id: ID!) {
       url
       createdAt
       updatedAt
-      version
     }
     blockedDates
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -564,7 +532,6 @@ export const listSpaceBlockedDates = `query ListSpaceBlockedDates(
         isReady
         createdAt
         updatedAt
-        version
       }
       reservation {
         id
@@ -580,7 +547,6 @@ export const listSpaceBlockedDates = `query ListSpaceBlockedDates(
         reservationState
         createdAt
         updatedAt
-        version
       }
       calendar {
         id
@@ -588,12 +554,10 @@ export const listSpaceBlockedDates = `query ListSpaceBlockedDates(
         url
         createdAt
         updatedAt
-        version
       }
       blockedDates
       createdAt
       updatedAt
-      version
     }
     nextToken
   }
@@ -622,13 +586,11 @@ export const getSpaceCalendar = `query GetSpaceCalendar($id: ID!) {
       isReady
       createdAt
       updatedAt
-      version
     }
     name
     url
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -660,13 +622,11 @@ export const listSpaceCalendars = `query ListSpaceCalendars(
         isReady
         createdAt
         updatedAt
-        version
       }
       name
       url
       createdAt
       updatedAt
-      version
     }
     nextToken
   }
@@ -689,7 +649,6 @@ export const getTransaction = `query GetTransaction($id: ID!) {
       reservationState
       createdAt
       updatedAt
-      version
     }
     payerEmail
     payerId
@@ -701,7 +660,6 @@ export const getTransaction = `query GetTransaction($id: ID!) {
     paymentType
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -727,7 +685,6 @@ export const listTransactions = `query ListTransactions(
         reservationState
         createdAt
         updatedAt
-        version
       }
       payerEmail
       payerId
@@ -739,7 +696,6 @@ export const listTransactions = `query ListTransactions(
       paymentType
       createdAt
       updatedAt
-      version
     }
     nextToken
   }
@@ -780,7 +736,6 @@ export const searchSpaces = `query SearchSpaces(
           isCover
           createdAt
           updatedAt
-          version
         }
         nextToken
       }
@@ -799,7 +754,6 @@ export const searchSpaces = `query SearchSpaces(
           reservationState
           createdAt
           updatedAt
-          version
         }
         nextToken
       }
@@ -809,7 +763,6 @@ export const searchSpaces = `query SearchSpaces(
           blockedDates
           createdAt
           updatedAt
-          version
         }
         nextToken
       }
@@ -820,7 +773,6 @@ export const searchSpaces = `query SearchSpaces(
           url
           createdAt
           updatedAt
-          version
         }
         nextToken
       }
@@ -829,7 +781,6 @@ export const searchSpaces = `query SearchSpaces(
       isReady
       createdAt
       updatedAt
-      version
     }
     nextToken
   }

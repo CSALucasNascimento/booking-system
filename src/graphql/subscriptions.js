@@ -25,7 +25,6 @@ export const onCreateSpace = `subscription OnCreateSpace {
         isCover
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -44,7 +43,6 @@ export const onCreateSpace = `subscription OnCreateSpace {
         reservationState
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -54,7 +52,6 @@ export const onCreateSpace = `subscription OnCreateSpace {
         blockedDates
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -65,7 +62,6 @@ export const onCreateSpace = `subscription OnCreateSpace {
         url
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -74,7 +70,6 @@ export const onCreateSpace = `subscription OnCreateSpace {
     isReady
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -102,7 +97,6 @@ export const onUpdateSpace = `subscription OnUpdateSpace {
         isCover
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -121,7 +115,6 @@ export const onUpdateSpace = `subscription OnUpdateSpace {
         reservationState
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -131,7 +124,6 @@ export const onUpdateSpace = `subscription OnUpdateSpace {
         blockedDates
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -142,7 +134,6 @@ export const onUpdateSpace = `subscription OnUpdateSpace {
         url
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -151,7 +142,6 @@ export const onUpdateSpace = `subscription OnUpdateSpace {
     isReady
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -179,7 +169,6 @@ export const onDeleteSpace = `subscription OnDeleteSpace {
         isCover
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -198,7 +187,6 @@ export const onDeleteSpace = `subscription OnDeleteSpace {
         reservationState
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -208,7 +196,6 @@ export const onDeleteSpace = `subscription OnDeleteSpace {
         blockedDates
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -219,7 +206,6 @@ export const onDeleteSpace = `subscription OnDeleteSpace {
         url
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -228,7 +214,6 @@ export const onDeleteSpace = `subscription OnDeleteSpace {
     isReady
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -255,7 +240,6 @@ export const onCreateSpaceData = `subscription OnCreateSpaceData {
       isReady
       createdAt
       updatedAt
-      version
     }
     bookingNoticeTime
     minTime
@@ -266,7 +250,6 @@ export const onCreateSpaceData = `subscription OnCreateSpaceData {
     manualDayDiscount
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -293,7 +276,6 @@ export const onUpdateSpaceData = `subscription OnUpdateSpaceData {
       isReady
       createdAt
       updatedAt
-      version
     }
     bookingNoticeTime
     minTime
@@ -304,7 +286,6 @@ export const onUpdateSpaceData = `subscription OnUpdateSpaceData {
     manualDayDiscount
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -331,7 +312,6 @@ export const onDeleteSpaceData = `subscription OnDeleteSpaceData {
       isReady
       createdAt
       updatedAt
-      version
     }
     bookingNoticeTime
     minTime
@@ -342,7 +322,6 @@ export const onDeleteSpaceData = `subscription OnDeleteSpaceData {
     manualDayDiscount
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -369,14 +348,12 @@ export const onCreateSpacePhoto = `subscription OnCreateSpacePhoto {
       isReady
       createdAt
       updatedAt
-      version
     }
     name
     type
     isCover
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -403,14 +380,12 @@ export const onUpdateSpacePhoto = `subscription OnUpdateSpacePhoto {
       isReady
       createdAt
       updatedAt
-      version
     }
     name
     type
     isCover
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -437,14 +412,12 @@ export const onDeleteSpacePhoto = `subscription OnDeleteSpacePhoto {
       isReady
       createdAt
       updatedAt
-      version
     }
     name
     type
     isCover
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -471,7 +444,6 @@ export const onCreateReservation = `subscription OnCreateReservation {
       isReady
       createdAt
       updatedAt
-      version
     }
     blockedDates {
       items {
@@ -479,7 +451,6 @@ export const onCreateReservation = `subscription OnCreateReservation {
         blockedDates
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -491,7 +462,6 @@ export const onCreateReservation = `subscription OnCreateReservation {
         checkOut
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -506,7 +476,6 @@ export const onCreateReservation = `subscription OnCreateReservation {
     reservationState
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -533,7 +502,6 @@ export const onUpdateReservation = `subscription OnUpdateReservation {
       isReady
       createdAt
       updatedAt
-      version
     }
     blockedDates {
       items {
@@ -541,7 +509,6 @@ export const onUpdateReservation = `subscription OnUpdateReservation {
         blockedDates
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -553,7 +520,6 @@ export const onUpdateReservation = `subscription OnUpdateReservation {
         checkOut
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -568,7 +534,6 @@ export const onUpdateReservation = `subscription OnUpdateReservation {
     reservationState
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -595,7 +560,6 @@ export const onDeleteReservation = `subscription OnDeleteReservation {
       isReady
       createdAt
       updatedAt
-      version
     }
     blockedDates {
       items {
@@ -603,7 +567,6 @@ export const onDeleteReservation = `subscription OnDeleteReservation {
         blockedDates
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -615,7 +578,6 @@ export const onDeleteReservation = `subscription OnDeleteReservation {
         checkOut
         createdAt
         updatedAt
-        version
       }
       nextToken
     }
@@ -630,7 +592,6 @@ export const onDeleteReservation = `subscription OnDeleteReservation {
     reservationState
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -641,7 +602,6 @@ export const onCreateReservationSlot = `subscription OnCreateReservationSlot {
     checkOut
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -652,7 +612,6 @@ export const onUpdateReservationSlot = `subscription OnUpdateReservationSlot {
     checkOut
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -663,7 +622,6 @@ export const onDeleteReservationSlot = `subscription OnDeleteReservationSlot {
     checkOut
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -690,7 +648,6 @@ export const onCreateSpaceBlockedDate = `subscription OnCreateSpaceBlockedDate {
       isReady
       createdAt
       updatedAt
-      version
     }
     reservation {
       id
@@ -706,7 +663,6 @@ export const onCreateSpaceBlockedDate = `subscription OnCreateSpaceBlockedDate {
       reservationState
       createdAt
       updatedAt
-      version
     }
     calendar {
       id
@@ -714,12 +670,10 @@ export const onCreateSpaceBlockedDate = `subscription OnCreateSpaceBlockedDate {
       url
       createdAt
       updatedAt
-      version
     }
     blockedDates
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -746,7 +700,6 @@ export const onUpdateSpaceBlockedDate = `subscription OnUpdateSpaceBlockedDate {
       isReady
       createdAt
       updatedAt
-      version
     }
     reservation {
       id
@@ -762,7 +715,6 @@ export const onUpdateSpaceBlockedDate = `subscription OnUpdateSpaceBlockedDate {
       reservationState
       createdAt
       updatedAt
-      version
     }
     calendar {
       id
@@ -770,12 +722,10 @@ export const onUpdateSpaceBlockedDate = `subscription OnUpdateSpaceBlockedDate {
       url
       createdAt
       updatedAt
-      version
     }
     blockedDates
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -802,7 +752,6 @@ export const onDeleteSpaceBlockedDate = `subscription OnDeleteSpaceBlockedDate {
       isReady
       createdAt
       updatedAt
-      version
     }
     reservation {
       id
@@ -818,7 +767,6 @@ export const onDeleteSpaceBlockedDate = `subscription OnDeleteSpaceBlockedDate {
       reservationState
       createdAt
       updatedAt
-      version
     }
     calendar {
       id
@@ -826,12 +774,10 @@ export const onDeleteSpaceBlockedDate = `subscription OnDeleteSpaceBlockedDate {
       url
       createdAt
       updatedAt
-      version
     }
     blockedDates
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -858,13 +804,11 @@ export const onCreateSpaceCalendar = `subscription OnCreateSpaceCalendar {
       isReady
       createdAt
       updatedAt
-      version
     }
     name
     url
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -891,13 +835,11 @@ export const onUpdateSpaceCalendar = `subscription OnUpdateSpaceCalendar {
       isReady
       createdAt
       updatedAt
-      version
     }
     name
     url
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -924,13 +866,11 @@ export const onDeleteSpaceCalendar = `subscription OnDeleteSpaceCalendar {
       isReady
       createdAt
       updatedAt
-      version
     }
     name
     url
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -951,7 +891,6 @@ export const onCreateTransaction = `subscription OnCreateTransaction {
       reservationState
       createdAt
       updatedAt
-      version
     }
     payerEmail
     payerId
@@ -963,7 +902,6 @@ export const onCreateTransaction = `subscription OnCreateTransaction {
     paymentType
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -984,7 +922,6 @@ export const onUpdateTransaction = `subscription OnUpdateTransaction {
       reservationState
       createdAt
       updatedAt
-      version
     }
     payerEmail
     payerId
@@ -996,7 +933,6 @@ export const onUpdateTransaction = `subscription OnUpdateTransaction {
     paymentType
     createdAt
     updatedAt
-    version
   }
 }
 `;
@@ -1017,7 +953,6 @@ export const onDeleteTransaction = `subscription OnDeleteTransaction {
       reservationState
       createdAt
       updatedAt
-      version
     }
     payerEmail
     payerId
@@ -1029,7 +964,6 @@ export const onDeleteTransaction = `subscription OnDeleteTransaction {
     paymentType
     createdAt
     updatedAt
-    version
   }
 }
 `;

@@ -1,4 +1,4 @@
-type Space @model @versioned @searchable{
+type Space @model @searchable{
   id: ID!
   userId: String!
   spaceType: String
@@ -23,7 +23,7 @@ type Space @model @versioned @searchable{
   createdAt: String
   updatedAt: String
 }
-type SpaceData @model @versioned{
+type SpaceData @model {
   id: ID!
   space: Space @connection
   bookingNoticeTime: String
@@ -36,7 +36,7 @@ type SpaceData @model @versioned{
   createdAt: String
   updatedAt: String
 }
-type SpacePhoto @model @versioned{
+type SpacePhoto @model {
   id: ID!
   space: Space @connection(name: "SpacePhoto")
   name: String
@@ -45,7 +45,7 @@ type SpacePhoto @model @versioned{
   createdAt: String
   updatedAt: String
 }
-type Reservation @model @versioned{
+type Reservation @model {
   id: ID!
   space: Space @connection(name: "SpaceReservation")
   blockedDates: [SpaceBlockedDate] @connection(name: "ReservationBlockedDate")
@@ -63,14 +63,14 @@ type Reservation @model @versioned{
   createdAt: String
   updatedAt: String
 }
-type ReservationSlot @model @versioned{
+type ReservationSlot @model {
   id: ID!
   checkIn: String
   checkOut: String
   createdAt: String
   updatedAt: String
 }
-type SpaceBlockedDate @model @versioned{
+type SpaceBlockedDate @model {
   id: ID!
   space: Space @connection(name: "SpaceBlockedDate")
   reservation: Reservation @connection(name: "ReservationBlockedDate")
@@ -79,7 +79,7 @@ type SpaceBlockedDate @model @versioned{
   createdAt: String
   updatedAt: String
 }
-type SpaceCalendar @model @versioned{
+type SpaceCalendar @model {
   id: ID!
   space: Space @connection(name: "SpaceCalendar")
   name: String
@@ -87,7 +87,7 @@ type SpaceCalendar @model @versioned{
   createdAt: String
   updatedAt: String
 }
-type Transaction @model @versioned{
+type Transaction @model {
   id: ID!
   reservation: Reservation @connection
   payerEmail: String

@@ -22,7 +22,6 @@ type Space {
   isReady: Boolean
   createdAt: String
   updatedAt: String
-  version: Int!
 }
 
 type SpaceData {
@@ -37,7 +36,6 @@ type SpaceData {
   manualDayDiscount: String
   createdAt: String
   updatedAt: String
-  version: Int!
 }
 
 type SpacePhoto {
@@ -48,7 +46,6 @@ type SpacePhoto {
   isCover: Boolean
   createdAt: String
   updatedAt: String
-  version: Int!
 }
 
 type Reservation {
@@ -68,7 +65,6 @@ type Reservation {
   reservationState: String
   createdAt: String
   updatedAt: String
-  version: Int!
 }
 
 type ReservationSlot {
@@ -77,7 +73,6 @@ type ReservationSlot {
   checkOut: String
   createdAt: String
   updatedAt: String
-  version: Int!
 }
 
 type SpaceBlockedDate {
@@ -88,7 +83,6 @@ type SpaceBlockedDate {
   blockedDates: String
   createdAt: String
   updatedAt: String
-  version: Int!
 }
 
 type SpaceCalendar {
@@ -98,7 +92,6 @@ type SpaceCalendar {
   url: String
   createdAt: String
   updatedAt: String
-  version: Int!
 }
 
 type Transaction {
@@ -114,7 +107,6 @@ type Transaction {
   paymentType: String
   createdAt: String
   updatedAt: String
-  version: Int!
 }
 
 enum ModelSortDirection {
@@ -268,12 +260,10 @@ input UpdateSpaceInput {
   isReady: Boolean
   createdAt: String
   updatedAt: String
-  expectedVersion: Int!
 }
 
 input DeleteSpaceInput {
   id: ID
-  expectedVersion: Int!
 }
 
 type Mutation {
@@ -376,12 +366,10 @@ input UpdateSpaceDataInput {
   createdAt: String
   updatedAt: String
   spaceDataSpaceId: ID
-  expectedVersion: Int!
 }
 
 input DeleteSpaceDataInput {
   id: ID
-  expectedVersion: Int!
 }
 
 type ModelSpacePhotoConnection {
@@ -418,12 +406,10 @@ input UpdateSpacePhotoInput {
   createdAt: String
   updatedAt: String
   spacePhotoSpaceId: ID
-  expectedVersion: Int!
 }
 
 input DeleteSpacePhotoInput {
   id: ID
-  expectedVersion: Int!
 }
 
 type ModelReservationConnection {
@@ -481,12 +467,10 @@ input UpdateReservationInput {
   createdAt: String
   updatedAt: String
   reservationSpaceId: ID
-  expectedVersion: Int!
 }
 
 input DeleteReservationInput {
   id: ID
-  expectedVersion: Int!
 }
 
 type ModelReservationSlotConnection {
@@ -520,12 +504,10 @@ input UpdateReservationSlotInput {
   createdAt: String
   updatedAt: String
   reservationSlotId: ID
-  expectedVersion: Int!
 }
 
 input DeleteReservationSlotInput {
   id: ID
-  expectedVersion: Int!
 }
 
 type ModelSpaceBlockedDateConnection {
@@ -560,12 +542,10 @@ input UpdateSpaceBlockedDateInput {
   spaceBlockedDateSpaceId: ID
   spaceBlockedDateReservationId: ID
   spaceBlockedDateCalendarId: ID
-  expectedVersion: Int!
 }
 
 input DeleteSpaceBlockedDateInput {
   id: ID
-  expectedVersion: Int!
 }
 
 type ModelSpaceCalendarConnection {
@@ -599,12 +579,10 @@ input UpdateSpaceCalendarInput {
   createdAt: String
   updatedAt: String
   spaceCalendarSpaceId: ID
-  expectedVersion: Int!
 }
 
 input DeleteSpaceCalendarInput {
   id: ID
-  expectedVersion: Int!
 }
 
 type ModelTransactionConnection {
@@ -656,12 +634,10 @@ input UpdateTransactionInput {
   createdAt: String
   updatedAt: String
   transactionReservationId: ID
-  expectedVersion: Int!
 }
 
 input DeleteTransactionInput {
   id: ID
-  expectedVersion: Int!
 }
 
 input SearchableStringFilterInput {
