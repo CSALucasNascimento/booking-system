@@ -25,8 +25,8 @@ class SpaceList extends React.Component {
 
   getInitialState = () => ({
     space: {
-      userId: '',
-      spaceType: '',
+      userId: '123123123',
+      spaceType: 'studio',
       spaceSize: '',
       spaceCapacity: 0,
       country: '',
@@ -78,7 +78,9 @@ class SpaceList extends React.Component {
   }
 
   handleAdd = () => {
-    this.getInitialState();
+    this.setState({
+      space: this.getInitialState().space
+    });
     this.setState({
       modal: !this.state.modal
     });
