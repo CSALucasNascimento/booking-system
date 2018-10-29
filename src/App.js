@@ -6,6 +6,7 @@ import awsconfig from './aws-exports';
 import { Main } from './components';
 import store, { AmplifyBridge } from './store';
 
+import index from './index.css';
 import s from './App.css';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
@@ -26,4 +27,4 @@ class App extends Component {
   }
 }
 
-export default withStyles(s)(App);
+export default withStyles(index, s)(App);

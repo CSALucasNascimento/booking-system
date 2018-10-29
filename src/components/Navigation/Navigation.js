@@ -16,7 +16,7 @@ class Navigation extends React.Component {
     super(props);
     this.storeListener = this.storeListener.bind(this);
     this.toggle = this.toggle.bind(this);
-    this.state = { user: null, isOpen: false }
+    this.state = { user: null, isOpen: true }
   }
 
   componentDidMount() {
@@ -43,33 +43,30 @@ class Navigation extends React.Component {
     const { user } = this.state;
     
     return (
-      <div className={s.root} role="navigation">
-        <Navbar expand="md" fixed="top">
-          <NavbarBrand href="#">Booking System</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen}>
-            <Nav>
-              <NavItem>
-                <NavLink href="#/">
-                  Home
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#/profile"> 
-                  Profile
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#/login">
-                  Login
-                </NavLink>
-              </NavItem>
-              { user && <SignOut /> }
-            </Nav>
-            
-          </Collapse>
-        </Navbar>
-      </div>
+      <Navbar>
+        <NavbarBrand href="#">Booking System</NavbarBrand>
+        <NavbarToggler onClick={this.toggle} />
+        <Collapse isOpen={this.state.isOpen}>
+          <Nav>
+            <NavItem>
+              <NavLink href="#/">
+                Home
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#/profile"> 
+                Profile
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#/login">
+                Login
+              </NavLink>
+            </NavItem>
+            { user && <SignOut /> }
+          </Nav>
+        </Collapse>
+      </Navbar>
     );
   }
 }

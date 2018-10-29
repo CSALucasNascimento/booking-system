@@ -2,6 +2,7 @@ import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './SpaceForm.css';
 
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { API, graphqlOperation } from "aws-amplify";
 import * as mutations from '../../../graphql/mutations';
 
@@ -17,19 +18,19 @@ class SpaceForm extends React.Component {
   }
 
   getInitialState = () => ({
-    userId: '2491cffa-b9d0-457e-b8bf-00b6bafab3c3',
-    spaceType: 'Studio',
-    spaceSize: '245sqm',
-    spaceCapacity: 100,
-    country: 'AU',
-    state: 'NSW',
-    city: 'Mascot',
-    address: 'U306/581-587 Gardeners Rd',
-    postCode: 2020,
-    lat: '123.123333',
-    lon: '123.123333',
-    title: 'Studio',
-    description: 'Studio description',
+    userId: '',
+    spaceType: '',
+    spaceSize: '',
+    spaceCapacity: 0,
+    country: '',
+    state: '',
+    city: '',
+    address: '',
+    postCode: 0,
+    lat: '',
+    lon: '',
+    title: '',
+    description: '',
     bookingType: 'instant',
     isPublished: true,
     isReady: true,
@@ -58,21 +59,47 @@ class SpaceForm extends React.Component {
   }
 
   render(){
-    const { spaceSize, spaceCapacity, country, state, city, address, postCode, title, description } = this.state;
     return (
-      <div>
-        <input name="spaceSize" placeholder="spaceSize" value={spaceSize} onChange={this.handleChange.bind(this, 'spaceSize')} />
-        <input name="spaceCapacity" placeholder="spaceCapacity" value={spaceCapacity} onChange={this.handleChange.bind(this, 'spaceCapacity')} />
-        <input name="country" placeholder="country" value={country} onChange={this.handleChange.bind(this, 'country')} />
-        <input name="state" placeholder="state" value={state} onChange={this.handleChange.bind(this, 'state')} />
-        <input name="city" placeholder="city" value={city} onChange={this.handleChange.bind(this, 'city')} />
-        <input name="address" placeholder="address" value={address} onChange={this.handleChange.bind(this, 'address')} />
-        <input name="postCode" placeholder="postCode" value={postCode} onChange={this.handleChange.bind(this, 'postCode')} />
-        <input name="title" placeholder="title" value={title} onChange={this.handleChange.bind(this, 'title')} />
-        <input name="description" placeholder="description" value={description} onChange={this.handleChange.bind(this, 'description')} />
-        <button onClick={this.handleAdd}>Add New Space</button>
-        <button onClick={this.handleCancel}>Cancel</button>
-      </div>
+      <Form>
+        <FormGroup>
+          <Label for="spaceSize">Space size</Label>
+          <Input type="text" name="spaceSize" id="spaceSize" placeholder="Space size" onChange={this.handleChange.bind(this, 'spaceSize')}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="spaceCapacity">Space capacity</Label>
+          <Input type="number" name="spaceCapacity" id="spaceCapacity" placeholder="Space capacity" onChange={this.handleChange.bind(this, 'spaceCapacity')}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="country">Country</Label>
+          <Input type="text" name="country" id="country" placeholder="Country" onChange={this.handleChange.bind(this, 'country')}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="state">State</Label>
+          <Input type="text" name="state" id="state" placeholder="State" onChange={this.handleChange.bind(this, 'state')}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="city">City</Label>
+          <Input type="text" name="city" id="city" placeholder="City" onChange={this.handleChange.bind(this, 'city')}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="address">Address</Label>
+          <Input type="text" name="address" id="address" placeholder="Address" onChange={this.handleChange.bind(this, 'address')}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="postCode">Post Code</Label>
+          <Input type="number" name="postCode" id="postCode" placeholder="Post Code" onChange={this.handleChange.bind(this, 'postCode')}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="title">Title</Label>
+          <Input type="text" name="title" id="title" placeholder="Title" onChange={this.handleChange.bind(this, 'title')}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="description">Description</Label>
+          <Input type="textarea" name="description" id="description" onChange={this.handleChange.bind(this, 'description')}/>
+        </FormGroup>
+        <Button onClick={this.handleAdd}>Add</Button>
+        <Button onClick={this.handleCancel}>Cancel</Button>
+      </Form>
     );
   }
 }
